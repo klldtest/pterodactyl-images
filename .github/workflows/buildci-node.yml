@@ -32,7 +32,7 @@ jobs:
           file: ./node18.Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: SahrulGamerz/pterodactyl-node-18:latest
+          tags: sahrulgamerz/pterodactyl-node-18:latest
           
   node16:
     runs-on: ubuntu-latest
@@ -60,7 +60,7 @@ jobs:
           file: ./node16.Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: SahrulGamerz/pterodactyl-node-16:latest
+          tags: sahrulgamerz/pterodactyl-node-16:latest
           
   node14:
     runs-on: ubuntu-latest
@@ -88,4 +88,4 @@ jobs:
           file: ./node14.Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: SahrulGamerz/pterodactyl-node-14:latest
+          tags: sahrulgamerz/pterodactyl-node-14:latest
