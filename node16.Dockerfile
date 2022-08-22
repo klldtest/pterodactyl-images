@@ -1,8 +1,8 @@
 FROM node:16-alpine
 
-MAINTAINER Sahrul Arsad, sahrularsad@yewonkim.tk
+LABEL MAINTAINER Sahrul Arsad, sahrularsad@yewonkim.tk
 
-RUN apk add --no-cache --update curl ca-certificates openssl git tar bash sqlite fontconfig \
+RUN apk add --no-cache --update curl ca-certificates openssl git tar bash sqlite fontconfig util-linux \
     && adduser --disabled-password --home /home/container container
 
 USER container
