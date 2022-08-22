@@ -2,10 +2,8 @@
 cd /home/container
 
 # Output Current Node | NPM Version
-echo "Node: "
-node -v
-echo "NPM: "
-npm -v
+echo "Node: "$(node -v)
+echo "NPM: "$(npm -v)
 
 # Replace Startup Variables
 MODIFIED_STARTUP=`eval echo $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')`
