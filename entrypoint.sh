@@ -2,6 +2,7 @@
 cd /home/container
 
 # Output Current Node | NPM Version
+echo "Script: "$(script -V)
 echo "Node: "$(node -v)
 echo "NPM: "$(npm -v)
 
