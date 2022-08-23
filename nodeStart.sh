@@ -81,7 +81,6 @@ if [[ "$GIT_AUTO_PULL" == "true" ]]; then
         echo "Any changes made directly to this folder and subfolder will be lost!"
         echo "*************************************************************"
         GITHUB_REPO=${GITHUB_REPO#*//}
-        GITHUB_REPO=${GITHUB_REPO%/*}
         if [[ $GITHUB_REPO = *.git ]]; then
             git clone --branch $GITHUB_BRANCH --progress "https://$GITHUB_USERNAME:$GITHUB_TOKEN@$GITHUB_REPO" temp
         else
