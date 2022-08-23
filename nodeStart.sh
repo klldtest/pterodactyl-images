@@ -1,11 +1,17 @@
 #!/bin/bash
 
+# Empty line
+echo ""
+
 # Output Current Script | Node | NPM Version
 echo "*************************************************************"
 echo "Script: "$(script -V)
 echo "Node: "$(node -v)
 echo "NPM: "$(npm -v)
 echo "*************************************************************"
+
+# Empty line
+echo ""
 
 # Output Current Settings
 echo "*************************************************************"
@@ -24,30 +30,40 @@ echo "*************************************************************"
 # Fetch repository
 if [[ "$GIT_AUTO_PULL" == "true" ]]; then
     if [[ "$GITHUB_USERNAME" == "" ]]; then
+        # Empty line
+        echo ""
         echo "*************************************************************"
         echo "Missing Github Username: "$GITHUB_USERNAME
         echo "*************************************************************"
         exit 1
     fi
     if [[ "$GITHUB_TOKEN" == "" ]]; then
+        # Empty line
+        echo ""
         echo "*************************************************************"
         echo "Missing Github Token: "$GITHUB_TOKEN
         echo "*************************************************************"
         exit 1
     fi
     if [[ "$GITHUB_REPO" == "" ]]; then
+        # Empty line
+        echo ""
         echo "*************************************************************"
         echo "Missing Github Repo: "$GITHUB_REPO
         echo "*************************************************************"
         exit 1
     fi
     if [[ "$GITHUB_BRANCH" == "" ]]; then
+        # Empty line
+        echo ""
         echo "*************************************************************"
         echo "Missing Github Branch: "$GITHUB_BRANCH
         echo "*************************************************************"
         exit 1
     fi
 
+    # Empty line
+    echo ""
     echo "*************************************************************"
     echo "Saving github credentials into global configuration..."
     echo "*************************************************************"
@@ -55,26 +71,38 @@ if [[ "$GIT_AUTO_PULL" == "true" ]]; then
     git config --global user.password "$GITHUB_TOKEN"
 
     if [[ -d "/home/container/.git" ]]; then
+        # Empty line
+        echo ""
         echo "*************************************************************"
         echo "Found .git folder. Pulling from existing repository..."
+        echo "Any changes made directly to this folder and subfolder will be lost!"
         echo "*************************************************************"
         git pull
     else 
+        # Empty line
+        echo ""
         echo "*************************************************************"
         echo "Pulling repository..."
+        echo "Any changes made directly to this folder and subfolder will be lost!"
         echo "*************************************************************"
         if [[ $GITHUB_REPO = *.git ]]; then
-            git clone $GITHUB_REPO .
+            git clone $GITHUB_REPO temp; mv temp/* temp/.git* .; rmdir temp
         else
-            git clone "$GITHUB_REPO.git" .
+            git clone "$GITHUB_REPO.git" temp; mv temp/* temp/.git* .; rmdir temp
         fi
     fi
 fi
+
+# Empty line
+echo ""
 
 # Run Shell
 if [[ "$SHELL_ACCESS" == "true"  ]]; then
     bash /shell.sh
 fi
+
+# Empty line
+echo ""
 
 # Run package installation
 if [[ "$AUTO_INSTALL_PACKAGE" == "true"  ]]; then
@@ -93,6 +121,13 @@ if [[ "$AUTO_INSTALL_PACKAGE" == "true"  ]]; then
     fi
 fi
 
+# Empty line
+echo ""
+
 # Run App
 $NODE_STARTUP_SCRIPT_1
+
+# Empty line
+echo ""
+
 $NODE_STARTUP_SCRIPT_2
