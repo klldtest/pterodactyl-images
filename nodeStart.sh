@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Empty line
-echo ""
+echo " "
 
 # Output Current Script | Node | NPM Version
 echo "*************************************************************"
@@ -11,7 +11,7 @@ echo "NPM: "$(npm -v)
 echo "*************************************************************"
 
 # Empty line
-echo ""
+echo " "
 
 # Output Current Settings
 echo "*************************************************************"
@@ -31,7 +31,7 @@ echo "*************************************************************"
 if [[ "$GIT_AUTO_PULL" == "true" ]]; then
     if [[ "$GITHUB_USERNAME" == "" ]]; then
         # Empty line
-        echo ""
+        echo " "
         echo "*************************************************************"
         echo "Missing Github Username: "$GITHUB_USERNAME
         echo "*************************************************************"
@@ -39,7 +39,7 @@ if [[ "$GIT_AUTO_PULL" == "true" ]]; then
     fi
     if [[ "$GITHUB_TOKEN" == "" ]]; then
         # Empty line
-        echo ""
+        echo " "
         echo "*************************************************************"
         echo "Missing Github Token: "$GITHUB_TOKEN
         echo "*************************************************************"
@@ -47,7 +47,7 @@ if [[ "$GIT_AUTO_PULL" == "true" ]]; then
     fi
     if [[ "$GITHUB_REPO" == "" ]]; then
         # Empty line
-        echo ""
+        echo " "
         echo "*************************************************************"
         echo "Missing Github Repo: "$GITHUB_REPO
         echo "*************************************************************"
@@ -55,7 +55,7 @@ if [[ "$GIT_AUTO_PULL" == "true" ]]; then
     fi
     if [[ "$GITHUB_BRANCH" == "" ]]; then
         # Empty line
-        echo ""
+        echo " "
         echo "*************************************************************"
         echo "Missing Github Branch: "$GITHUB_BRANCH
         echo "*************************************************************"
@@ -63,16 +63,16 @@ if [[ "$GIT_AUTO_PULL" == "true" ]]; then
     fi
 
     # Empty line
-    echo ""
+    echo " "
     echo "*************************************************************"
-    echo "Saving github credentials into global configuration..."
+    echo "Saving github credentials into git configuration..."
     echo "*************************************************************"
-    git config --global user.name "$GITHUB_USERNAME"
-    git config --global user.password "$GITHUB_TOKEN"
+    git config user.name "$GITHUB_USERNAME"
+    git config user.password "$GITHUB_TOKEN"
 
     if [[ -d "/home/container/.git" ]]; then
         # Empty line
-        echo ""
+        echo " "
         echo "*************************************************************"
         echo "Found .git folder. Pulling from existing repository..."
         echo "Any changes made directly to this folder and subfolder will be lost!"
@@ -80,21 +80,25 @@ if [[ "$GIT_AUTO_PULL" == "true" ]]; then
         git pull
     else 
         # Empty line
-        echo ""
+        echo " "
         echo "*************************************************************"
         echo "Pulling repository..."
         echo "Any changes made directly to this folder and subfolder will be lost!"
         echo "*************************************************************"
         if [[ $GITHUB_REPO = *.git ]]; then
-            git clone $GITHUB_REPO temp; mv temp/* temp/.git* .; rmdir temp
+            git clone $GITHUB_REPO temp
         else
-            git clone "$GITHUB_REPO.git" temp; mv temp/* temp/.git* .; rmdir temp
+            git clone "$GITHUB_REPO.git" temp
         fi
+        
+        for x in temp/* temp/.[!.]* temp/..?*; do
+            if [ -e "$x" ]; then mv -- "$x" ./; fi
+        done
     fi
 fi
 
 # Empty line
-echo ""
+echo " "
 
 # Run Shell
 if [[ "$SHELL_ACCESS" == "true"  ]]; then
@@ -102,7 +106,7 @@ if [[ "$SHELL_ACCESS" == "true"  ]]; then
 fi
 
 # Empty line
-echo ""
+echo " "
 
 # Run package installation
 if [[ "$AUTO_INSTALL_PACKAGE" == "true"  ]]; then
@@ -122,12 +126,12 @@ if [[ "$AUTO_INSTALL_PACKAGE" == "true"  ]]; then
 fi
 
 # Empty line
-echo ""
+echo " "
 
 # Run App
 $NODE_STARTUP_SCRIPT_1
 
 # Empty line
-echo ""
+echo " "
 
 $NODE_STARTUP_SCRIPT_2
