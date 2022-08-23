@@ -28,7 +28,7 @@ if [[ "$GIT_AUTO_PULL" == "true" ]]; then
         echo "Missing Github Username: "$GITHUB_USERNAME
         echo "*************************************************************"
         exit 1
-    if
+    fi
     if [[ "$GITHUB_TOKEN" == "" ]]; then
         echo "*************************************************************"
         echo "Missing Github Token: "$GITHUB_TOKEN
