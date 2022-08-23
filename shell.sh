@@ -6,7 +6,7 @@ echo "To exit please enter exit."
 echo "If you stuck inside a program, please restart the container."
 echo "*************************************************************"
 
-script -B /dev/null -q
+script -I /dev/null -O /dev/null -B /dev/null -q
 
 echo "*************************************************************"
 echo "You have exited shell access mode."

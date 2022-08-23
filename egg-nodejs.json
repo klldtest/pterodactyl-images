@@ -1,0 +1,134 @@
+{
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "meta": {
+        "version": "PTDL_v2",
+        "update_url": null
+    },
+    "exported_at": "2022-08-23T18:19:18+08:00",
+    "name": "NodeJS",
+    "author": "sahrularsad@gmail.com",
+    "description": "Node JS Egg with support Github and Shell Access",
+    "features": null,
+    "docker_images": {
+        "NodeJS 14": "sahrul012\/pterodactyl-node-14",
+        "NodeJS 16": "sahrul012\/pterodactyl-node-16",
+        "NodeJS 18": "sahrul012\/pterodactyl-node-18"
+    },
+    "file_denylist": [],
+    "startup": "bash \/start.sh",
+    "config": {
+        "files": "{}",
+        "startup": "{\r\n    \"done\": [\r\n        \"Bot ready\",\r\n        \"Bot Ready\",\r\n        \"Ready\"\r\n    ]\r\n}",
+        "logs": "{\r\n    \"custom\": false,\r\n    \"location\": \"logs\/latest.log\"\r\n}",
+        "stop": "^C"
+    },
+    "scripts": {
+        "installation": {
+            "script": null,
+            "container": "alpine:3.4",
+            "entrypoint": "ash"
+        }
+    },
+    "variables": [
+        {
+            "name": "GITHUB USERNAME",
+            "description": "Github username. Can be email or username",
+            "env_variable": "GITHUB_USERNAME",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "nullable|string|max:30",
+            "field_type": "text"
+        },
+        {
+            "name": "GITHUB TOKEN",
+            "description": "Github personal access token. Can be retrieved from https://github.com/settings/tokens",
+            "env_variable": "GITHUB_TOKEN",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "nullable|string|max:30",
+            "field_type": "text"
+        },
+        {
+            "name": "Repository URL",
+            "description": "Github repository url. Should be https://github.com/UserName/Repository.git",
+            "env_variable": "GITHUB_REPO",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "nullable|string|max:20",
+            "field_type": "text"
+        },
+        {
+            "name": "Repository Branch",
+            "description": "Repository branch that should be pulled.",
+            "env_variable": "GITHUB_BRANCH",
+            "default_value": "main",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:20",
+            "field_type": "text"
+        },
+        {
+            "name": "Auto Pull Repository",
+            "description": "Automatic pull github repository on startup. Any action required will be prompted in the console.",
+            "env_variable": "GIT_AUTO_PULL",
+            "default_value": "false",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|in:false,true",
+            "field_type": "text"
+        },
+        {
+            "name": "Shell Access",
+            "description": "Enable shell access to the container. Useful for debugging or testing purposes.",
+            "env_variable": "SHELL_ACCESS",
+            "default_value": "false",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|in:false,true",
+            "field_type": "text"
+        },
+        {
+            "name": "Package Manager",
+            "description": "Available package manager 'npm', 'yarn', 'pnpm'",
+            "env_variable": "PACKAGE_MANAGER",
+            "default_value": "npm",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|in:npm,yarn,pnpm",
+            "field_type": "text"
+        },
+        {
+            "name": "Auto Install Package",
+            "description": "Automatic install package. package.json must be available in your home directory.",
+            "env_variable": "AUTO_INSTALL_PACKAGE",
+            "default_value": "true",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|in:false,true",
+            "field_type": "text"
+        },
+        {
+            "name": "Startup Script 1 (Required)",
+            "description": "Primary application startup script. Can be 'npm run scriptname', 'node index.js' or etc.",
+            "env_variable": "NODE_STARTUP_SCRIPT_1",
+            "default_value": "node .",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:20",
+            "field_type": "text"
+        },
+        {
+            "name": "Startup Script 2 (Optional)",
+            "description": "Secondary application startup script. Can be 'npm run scriptname', 'node index.js' or etc.",
+            "env_variable": "NODE_STARTUP_SCRIPT_2",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "nullable|string|max:20",
+            "field_type": "text"
+        }
+    ]
+}
