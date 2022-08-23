@@ -27,6 +27,9 @@ echo "Node Startup Script #1: $NODE_STARTUP_SCRIPT_1"
 echo "Node Startup Script #2: $NODE_STARTUP_SCRIPT_2"
 echo "*************************************************************"
 
+# Register SERVER_PORT to PORT in environment
+PORT=$SERVER_PORT
+
 # Remove temp folder
 rm -rf temp
 
