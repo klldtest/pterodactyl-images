@@ -15,17 +15,20 @@ echo " "
 
 # Output Current Settings
 echo "*************************************************************"
-echo "Github Username: "$GITHUB_USERNAME
-echo "Github Token: "$GITHUB_TOKEN"(Please hide this in your screenshot)"
-echo "Repository URL: "$GITHUB_REPO 
-echo "Repository Branch: "$GITHUB_BRANCH
-echo "Github Auto Pull: "$GIT_AUTO_PULL 
-echo "Shell Access: "$SHELL_ACCESS 
-echo "Package Manager: "$PACKAGE_MANAGER
-echo "Auto Install Package: "$AUTO_INSTALL_PACKAGE 
-echo "Node Startup Script #1: "$NODE_STARTUP_SCRIPT_1 
-echo "Node Startup Script #2: "$NODE_STARTUP_SCRIPT_2
+echo "Github Username: $GITHUB_USERNAME"
+echo "Github Token: $GITHUB_TOKEN (Please hide this in your screenshot)"
+echo "Repository URL: $GITHUB_REPO"
+echo "Repository Branch: $GITHUB_BRANCH"
+echo "Github Auto Pull: $GIT_AUTO_PULL"
+echo "Shell Access: $SHELL_ACCESS"
+echo "Package Manager: $PACKAGE_MANAGER"
+echo "Auto Install Package: $AUTO_INSTALL_PACKAGE"
+echo "Node Startup Script #1: $NODE_STARTUP_SCRIPT_1"
+echo "Node Startup Script #2: $NODE_STARTUP_SCRIPT_2"
 echo "*************************************************************"
+
+# Remove temp folder
+rm -rf temp
 
 # Fetch repository
 if [[ "$GIT_AUTO_PULL" == "true" ]]; then
@@ -33,7 +36,7 @@ if [[ "$GIT_AUTO_PULL" == "true" ]]; then
         # Empty line
         echo " "
         echo "*************************************************************"
-        echo "Missing Github Username: "$GITHUB_USERNAME
+        echo "Missing Github Username: $GITHUB_USERNAME"
         echo "*************************************************************"
         exit 1
     fi
@@ -41,7 +44,7 @@ if [[ "$GIT_AUTO_PULL" == "true" ]]; then
         # Empty line
         echo " "
         echo "*************************************************************"
-        echo "Missing Github Token: "$GITHUB_TOKEN
+        echo "Missing Github Token: $GITHUB_TOKEN"
         echo "*************************************************************"
         exit 1
     fi
@@ -49,7 +52,7 @@ if [[ "$GIT_AUTO_PULL" == "true" ]]; then
         # Empty line
         echo " "
         echo "*************************************************************"
-        echo "Missing Github Repo: "$GITHUB_REPO
+        echo "Missing Github Repo: $GITHUB_REPO"
         echo "*************************************************************"
         exit 1
     fi
@@ -57,7 +60,7 @@ if [[ "$GIT_AUTO_PULL" == "true" ]]; then
         # Empty line
         echo " "
         echo "*************************************************************"
-        echo "Missing Github Branch: "$GITHUB_BRANCH
+        echo "Missing Github Branch: $GITHUB_BRANCH"
         echo "*************************************************************"
         exit 1
     fi
@@ -77,22 +80,17 @@ if [[ "$GIT_AUTO_PULL" == "true" ]]; then
         echo "Pulling repository..."
         echo "Any changes made directly to this folder and subfolder will be lost!"
         echo "*************************************************************"
+        GITHUB_REPO = ${GITHUB_REPO#*//}
+        GITHUB_REPO = ${GITHUB_REPO#*//}
         if [[ $GITHUB_REPO = *.git ]]; then
-            git clone --config user.name=$GITHUB_USERNAME --config user.password=$GITHUB_TOKEN --progress $GITHUB_REPO temp
+            git clone --progress "https://$GITHUB_USERNAME:$GITHUB_TOKEN@$GITHUB_REPO" temp
         else
-            git clone --config user.name=$GITHUB_USERNAME --config user.password=$GITHUB_TOKEN --progress "$GITHUB_REPO.git" temp
+            git clone --progress "https://$GITHUB_USERNAME:$GITHUB_TOKEN@$GITHUB_REPO.git" temp
         fi
         
         for x in temp/* temp/.[!.]* temp/..?*; do
             if [ -e "$x" ]; then mv -- "$x" ./; fi
         done
-
-        echo " "
-        echo "*************************************************************"
-        echo "Saving github credentials into git configuration..."
-        echo "*************************************************************"
-        git config user.name "$GITHUB_USERNAME"
-        git config user.password "$GITHUB_TOKEN"
     fi
 fi
 
@@ -110,13 +108,10 @@ echo " "
 # Run package installation
 if [[ "$AUTO_INSTALL_PACKAGE" == "true"  ]]; then
     if [[ "$PACKAGE_MANAGER" == "npm" ]]; then
-        echo "NPM"
         npm install
     elif [[ "$PACKAGE_MANAGER" == "yarn" ]]; then
-        echo "YARN"
         yarn install
     elif [[ "$PACKAGE_MANAGER" == "pnpm" ]]; then
-        echo "PNPM"
         pnpm install
     else
         echo "Invalid package manager"
