@@ -64,9 +64,9 @@ if [[ "$GIT_AUTO_PULL" == "true" ]]; then
         echo "Pulling repository..."
         echo "*************************************************************"
         if [[ $GITHUB_REPO = *.git ]]; then
-            git clone $GITHUB_REPO
+            git clone $GITHUB_REPO .
         else
-            git clone "$GITHUB_REPO.git"
+            git clone "$GITHUB_REPO.git" .
         fi
     fi
 fi
