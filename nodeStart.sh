@@ -16,7 +16,7 @@ echo " "
 # Output Current Settings
 echo "*************************************************************"
 echo "Github Username: "$GITHUB_USERNAME
-echo "Github Token: "$GITHUB_TOKEN 
+echo "Github Token: "$GITHUB_TOKEN"(Please hide this in your screenshot)"
 echo "Repository URL: "$GITHUB_REPO 
 echo "Repository Branch: "$GITHUB_BRANCH
 echo "Github Auto Pull: "$GIT_AUTO_PULL 
@@ -62,14 +62,6 @@ if [[ "$GIT_AUTO_PULL" == "true" ]]; then
         exit 1
     fi
 
-    # Empty line
-    echo " "
-    echo "*************************************************************"
-    echo "Saving github credentials into git configuration..."
-    echo "*************************************************************"
-    git config user.name "$GITHUB_USERNAME"
-    git config user.password "$GITHUB_TOKEN"
-
     if [[ -d "/home/container/.git" ]]; then
         # Empty line
         echo " "
@@ -77,7 +69,7 @@ if [[ "$GIT_AUTO_PULL" == "true" ]]; then
         echo "Found .git folder. Pulling from existing repository..."
         echo "Any changes made directly to this folder and subfolder will be lost!"
         echo "*************************************************************"
-        git pull
+        git pull --progress
     else 
         # Empty line
         echo " "
@@ -86,14 +78,21 @@ if [[ "$GIT_AUTO_PULL" == "true" ]]; then
         echo "Any changes made directly to this folder and subfolder will be lost!"
         echo "*************************************************************"
         if [[ $GITHUB_REPO = *.git ]]; then
-            git clone $GITHUB_REPO temp
+            git clone --config user.name=$GITHUB_USERNAME --config user.password=$GITHUB_TOKEN --progress $GITHUB_REPO temp
         else
-            git clone "$GITHUB_REPO.git" temp
+            git clone --config user.name=$GITHUB_USERNAME --config user.password=$GITHUB_TOKEN --progress "$GITHUB_REPO.git" temp
         fi
         
         for x in temp/* temp/.[!.]* temp/..?*; do
             if [ -e "$x" ]; then mv -- "$x" ./; fi
         done
+
+        echo " "
+        echo "*************************************************************"
+        echo "Saving github credentials into git configuration..."
+        echo "*************************************************************"
+        git config user.name "$GITHUB_USERNAME"
+        git config user.password "$GITHUB_TOKEN"
     fi
 fi
 
