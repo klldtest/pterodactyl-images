@@ -83,9 +83,9 @@ if [[ "$GIT_AUTO_PULL" == "true" ]]; then
         GITHUB_REPO = ${GITHUB_REPO#*//}
         GITHUB_REPO = ${GITHUB_REPO#*//}
         if [[ $GITHUB_REPO = *.git ]]; then
-            git clone --progress "https://$GITHUB_USERNAME:$GITHUB_TOKEN@$GITHUB_REPO" temp
+            git clone --branch $GITHUB_BRANCH --progress "https://$GITHUB_USERNAME:$GITHUB_TOKEN@$GITHUB_REPO" temp
         else
-            git clone --progress "https://$GITHUB_USERNAME:$GITHUB_TOKEN@$GITHUB_REPO.git" temp
+            git clone --branch $GITHUB_BRANCH --progress "https://$GITHUB_USERNAME:$GITHUB_TOKEN@$GITHUB_REPO.git" temp
         fi
         
         for x in temp/* temp/.[!.]* temp/..?*; do
