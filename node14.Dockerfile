@@ -2,7 +2,7 @@ FROM node:14-alpine
 
 LABEL MAINTAINER Sahrul Arsad, sahrularsad@yewonkim.tk
 
-RUN apk add --no-cache --update curl ca-certificates openssl git tar bash sqlite fontconfig util-linux xz \
+RUN apk add --no-cache --update curl ca-certificates openssl git tar bash sqlite fontconfig util-linux xz php8\
     && adduser --disabled-password --home /home/container container
 
 USER container
