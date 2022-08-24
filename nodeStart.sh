@@ -75,7 +75,8 @@ if [[ "$GIT_AUTO_PULL" == "true" ]]; then
         echo "Found .git folder. Pulling from existing repository..."
         echo "Any changes made directly to this folder and subfolder will be lost!"
         echo "*************************************************************"
-        git pull --progress
+        git fetch --all
+        git reset --hard origin/$GITHUB_BRANCH
     else 
         # Empty line
         echo " "
