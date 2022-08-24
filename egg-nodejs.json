@@ -2,7 +2,7 @@
     "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
     "meta": {
         "version": "PTDL_v2",
-        "update_url": null
+        "update_url": "https://github.com/SahrulGamerz/pterodactyl/raw/main/egg-nodejs.json"
     },
     "exported_at": "2022-08-23T18:19:18+08:00",
     "name": "NodeJS",
