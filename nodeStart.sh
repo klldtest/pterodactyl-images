@@ -34,7 +34,7 @@ export PORT=$SERVER_PORT
 rm -rf temp
 
 # Fetch repository
-if [[ "$GIT_AUTO_PULL" == "true" ]]; then
+if [[ "$GIT_AUTO_PULL" == "TRUE" ]]; then
     if [[ "$GITHUB_USERNAME" == "" ]]; then
         # Empty line
         echo " "
@@ -101,12 +101,12 @@ fi
 echo " "
 
 # Run Shell
-if [[ "$SHELL_ACCESS" == "true"  ]]; then
+if [[ "$SHELL_ACCESS" == "TRUE"  ]]; then
     bash /shell.sh
 fi
 
 # Run package installation
-if [[ "$AUTO_INSTALL_PACKAGE" == "true"  ]]; then
+if [[ "$AUTO_INSTALL_PACKAGE" == "TRUE"  ]]; then
     # Empty line
     echo " "
     echo "*************************************************************"
