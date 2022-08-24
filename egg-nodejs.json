@@ -37,7 +37,7 @@
             "default_value": "",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "nullable|string|max:30",
+            "rules": "nullable|string|max:50",
             "field_type": "text"
         },
         {
@@ -117,7 +117,7 @@
             "default_value": "node .",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "required|string|max:20",
+            "rules": "required|string|max:50",
             "field_type": "text"
         },
         {
@@ -127,7 +127,7 @@
             "default_value": "",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "nullable|string|max:20",
+            "rules": "nullable|string|max:50",
             "field_type": "text"
         }
     ]
