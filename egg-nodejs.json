@@ -74,20 +74,20 @@
             "name": "Auto Pull Repository",
             "description": "Automatic pull github repository on startup. Any action required will be prompted in the console.",
             "env_variable": "GIT_AUTO_PULL",
-            "default_value": "false",
+            "default_value": "FALSE",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "required|in:false,true",
+            "rules": "required|in:FALSE,TRUE",
             "field_type": "text"
         },
         {
             "name": "Shell Access",
             "description": "Enable shell access to the container. Useful for debugging or testing purposes.",
             "env_variable": "SHELL_ACCESS",
-            "default_value": "false",
+            "default_value": "FALSE",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "required|in:false,true",
+            "rules": "required|in:FALSE,TRUE",
             "field_type": "text"
         },
         {
@@ -104,10 +104,10 @@
             "name": "Auto Install Package",
             "description": "Automatic install package. package.json must be available in your home directory.",
             "env_variable": "AUTO_INSTALL_PACKAGE",
-            "default_value": "true",
+            "default_value": "TRUE",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "required|in:false,true",
+            "rules": "required|in:FALSE,TRUE",
             "field_type": "text"
         },
         {
