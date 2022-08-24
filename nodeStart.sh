@@ -105,11 +105,13 @@ if [[ "$SHELL_ACCESS" == "true"  ]]; then
     bash /shell.sh
 fi
 
-# Empty line
-echo " "
-
 # Run package installation
 if [[ "$AUTO_INSTALL_PACKAGE" == "true"  ]]; then
+    # Empty line
+    echo " "
+    echo "*************************************************************"
+    echo "Installing dependencies..."
+    echo "*************************************************************"
     if [[ "$PACKAGE_MANAGER" == "npm" ]]; then
         npm install
     elif [[ "$PACKAGE_MANAGER" == "yarn" ]]; then
@@ -117,14 +119,20 @@ if [[ "$AUTO_INSTALL_PACKAGE" == "true"  ]]; then
     elif [[ "$PACKAGE_MANAGER" == "pnpm" ]]; then
         pnpm install
     else
+        # Empty line
+        echo " "
+        echo "*************************************************************"
         echo "Invalid package manager"
+        echo "*************************************************************"
         exit 1
     fi
 fi
 
 # Empty line
 echo " "
-
+echo "*************************************************************"
+echo "Starting application..."
+echo "*************************************************************"
 # Run App
 $NODE_STARTUP_SCRIPT_1
 
