@@ -104,9 +104,6 @@ else
     echo "*************************************************************"
 fi
 
-# Empty line
-echo " "
-
 # Run Shell
 if [[ "$SHELL_ACCESS" == "TRUE"  ]]; then
     bash /shell.sh
