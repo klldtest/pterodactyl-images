@@ -2,13 +2,10 @@ FROM node:16-alpine
 
 LABEL MAINTAINER Sahrul Arsad, sahrularsad@yewonkim.tk
 
-FROM python:3.8-alpine as python
-COPY --from=python /usr/local/bin/python3 /usr/local/bin/python3
-COPY --from=python /usr/local/lib/python3.8 /usr/local/lib/python3.8
-COPY --from=python /usr/local/lib/libpython3.8.so.1.0 /usr/local/lib/libpython3.8.so.1.0
-COPY --from=python /usr/local/lib/libpython3.so /usr/local/lib/libpython3.so
-
-RUN apk add --no-cache --update curl ca-certificates openssl git tar bash sqlite fontconfig util-linux xz php8 \
+ENV PYTHONUNBUFFERED=1
+RUN apk add --no-cache --update build-base curl ca-certificates openssl git tar bash sqlite fontconfig util-linux xz php8 python3 \
+    && ln -sf python3 /usr/bin/python \
+    && python3 -m ensurepip \
     && pip3 install --no-cache --upgrade pip setuptools \
     && adduser --disabled-password --home /home/container container
 
