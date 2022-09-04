@@ -18,7 +18,7 @@ echo "* Lavalink Version: $LAVALINK_VERSION"
 echo "* Lavalink Password: $LAVALINK_PASSWORD (Please hide this in your screenshot)"
 echo "* Automatic Update: $LAVALINK_UPDATE"
 echo "* Shell Access: $SHELL_ACCESS"
-echo "* Lavalink Startup Script #1: $LAVALINK_STARTUP_SCRIPT"
+echo "* Lavalink Startup Script: $LAVALINK_STARTUP_SCRIPT"
 echo "*************************************************************"
 
 # Register SERVER_PORT to PORT in environment
@@ -75,7 +75,7 @@ if [ -f "./application.yml.original" ]; then
         mv ./application.yml ./application.yml.modified
         mv ./application.yml.original ./application.yml
     fi
-else if [ -f "./application.yml.modified" ]; then
+elif [ -f "./application.yml.modified" ]; then
     if [[ "$LAVALINK_VERSION" == "MODIFIED" ]]; then
         # Empty line
         echo " "

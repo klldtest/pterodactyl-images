@@ -23,7 +23,7 @@
     "scripts": {
         "installation": {
             "script": null,
-            "container": "alpine:3.4",
+            "container": "alpine:latest",
             "entrypoint": "ash"
         }
     },
@@ -71,7 +71,7 @@
         {
             "name": "Startup Script",
             "description": "Primary application startup script. Can be 'java -jar Lavalink.jar'",
-            "env_variable": "NLAVALINK_STARTUP_SCRIPT",
+            "env_variable": "LAVALINK_STARTUP_SCRIPT",
             "default_value": "java -jar Lavalink.jar",
             "user_viewable": true,
             "user_editable": false,
