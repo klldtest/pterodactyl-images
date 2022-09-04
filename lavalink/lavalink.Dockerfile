@@ -2,9 +2,9 @@ FROM openjdk:19-oracle
 
 LABEL MAINTAINER Sahrul Arsad, sahrularsad@yewonkim.tk
 
-RUN yum install curl ca-certificates openssl git tar bash sqlite fontconfig util-linux xz \
-    && yum groupinstall 'Development Tools' \
-    && yum clean packages && yum clean metadata && yum clean headers && yum clean all \
+RUN dnf install curl ca-certificates openssl git tar bash sqlite fontconfig util-linux xz \
+    && dnf groupinstall 'Development Tools' \
+    && dnf clean packages && dnf clean metadata && dnf clean headers && dnf clean all \
     && adduser --disabled-password --home /home/container container
 
 USER container
