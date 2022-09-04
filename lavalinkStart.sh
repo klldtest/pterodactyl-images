@@ -45,9 +45,6 @@ if [ -f "./Lavalink.jar" ]; then
         fi
     fi
 else
-    # Download application.yml for both version
-    curl -L https://raw.githubusercontent.com/davidffa/lavalink/dev/application.yml.example -o ./application.yml.original
-    curl -L https://raw.githubusercontent.com/freyacodes/Lavalink/master/LavalinkServer/application.yml.example -o ./application.yml.modified
     if [[ "$LAVALINK_VERSION" == "ORIGINAL"  ]]; then
         # Empty line
         echo " "
@@ -70,7 +67,7 @@ if [ -f "./application.yml.original" ]; then
         # Empty line
         echo " "
         echo "*************************************************************"
-        echo "* Changing to application files to original"
+        echo "* Changing application config to original"
         echo "*************************************************************"
         mv ./application.yml ./application.yml.modified
         mv ./application.yml.original ./application.yml
@@ -80,7 +77,33 @@ elif [ -f "./application.yml.modified" ]; then
         # Empty line
         echo " "
         echo "*************************************************************"
-        echo "* Changing to application files to modified"
+        echo "* Changing application config to modified"
+        echo "*************************************************************"
+        mv ./application.yml ./application.yml.original
+        mv ./application.yml.modified ./application.yml
+    fi
+else
+    # Empty line
+    echo " "
+    echo "*************************************************************"
+    echo "* Downloading original and modified version of config files"
+    echo "*************************************************************"
+    curl -L https://raw.githubusercontent.com/davidffa/lavalink/dev/application.yml.example -o ./application.yml.original
+    curl -L https://raw.githubusercontent.com/freyacodes/Lavalink/master/LavalinkServer/application.yml.example -o ./application.yml.modified
+    
+    if [[ "$LAVALINK_VERSION" == "ORIGINAL"  ]]; then
+        # Empty line
+        echo " "
+        echo "*************************************************************"
+        echo "* Changing application config to original"
+        echo "*************************************************************"
+        mv ./application.yml ./application.yml.modified
+        mv ./application.yml.original ./application.yml
+    elif [[ "$LAVALINK_VERSION" == "MODIFIED" ]]; then
+        # Empty line
+        echo " "
+        echo "*************************************************************"
+        echo "* Changing application config to modified"
         echo "*************************************************************"
         mv ./application.yml ./application.yml.original
         mv ./application.yml.modified ./application.yml
