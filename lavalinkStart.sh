@@ -12,6 +12,9 @@ echo "*************************************************************"
 # Empty line
 echo " "
 
+# Change {{SERVER MEMORY}} to SERVER MEMORY
+$LAVALINK_STARTUP_SCRIPT=${LAVALINK_STARTUP_SCRIPT//"{{SERVER_MEMORY}}"/"$SERVER_MEMORY"}
+
 # Output Current Settings
 echo "*************************************************************"
 echo "* Lavalink Version: $LAVALINK_VERSION"
@@ -90,7 +93,7 @@ else
     echo "*************************************************************"
     curl -L https://raw.githubusercontent.com/davidffa/lavalink/dev/application.yml.example -o ./application.yml.original
     curl -L https://raw.githubusercontent.com/freyacodes/Lavalink/master/LavalinkServer/application.yml.example -o ./application.yml.modified
-    
+
     if [[ "$LAVALINK_VERSION" == "ORIGINAL"  ]]; then
         # Empty line
         echo " "
