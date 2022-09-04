@@ -4,7 +4,7 @@ LABEL MAINTAINER Sahrul Arsad, sahrularsad@yewonkim.tk
 
 RUN microdnf install curl ca-certificates openssl git tar bash sqlite fontconfig util-linux xz \
     && microdnf clean all \
-    && adduser --disabled-password --home /home/container container
+    && adduser --home-dir /home/container container
 
 USER container
 ENV  USER=container HOME=/home/container
