@@ -14,8 +14,8 @@ ENV  USER=container HOME=/home/container
 
 WORKDIR /home/container
 
-COPY ./entrypoint.sh /entrypoint.sh
-COPY ./shell.sh /shell.sh
-COPY ./nodeStart.sh /start.sh
+COPY ../entrypoint.sh /entrypoint.sh
+COPY ../shell.sh /shell.sh
+COPY ../nodeStart.sh /start.sh
 
 CMD ["/bin/bash", "/entrypoint.sh"]

@@ -1,4 +1,4 @@
-FROM node:14-alpine
+FROM node:18-alpine
 
 LABEL MAINTAINER Sahrul Arsad, sahrularsad@yewonkim.tk
 
@@ -14,8 +14,8 @@ ENV  USER=container HOME=/home/container
 
 WORKDIR /home/container
 
-COPY ./entrypoint.sh /entrypoint.sh
-COPY ./shell.sh /shell.sh
-COPY ./nodeStart.sh /start.sh
+COPY ../entrypoint.sh /entrypoint.sh
+COPY ../shell.sh /shell.sh
+COPY ../nodeStart.sh /start.sh
 
 CMD ["/bin/bash", "/entrypoint.sh"]

@@ -3,12 +3,11 @@
 # Empty line
 echo " "
 
-# Output Current Script | Node | NPM Version | Python Version | PHP Version
+# Output Current Script | Python Version | Pip Version | PHP Version
 echo "*************************************************************"
 echo "* Script: "$(script -V)
-echo "* Node: "$(node -v)
-echo "* NPM: "$(npm -v)
 echo "* Python: "$(python --version)
+echo "* Pip: "$(pip --version)
 echo "* PHP: "$(php -v)
 echo "*************************************************************"
 
@@ -25,8 +24,8 @@ echo "* Github Auto Pull: $GIT_AUTO_PULL"
 echo "* Shell Access: $SHELL_ACCESS"
 echo "* Package Manager: $PACKAGE_MANAGER"
 echo "* Auto Install Package: $AUTO_INSTALL_PACKAGE"
-echo "* Node Startup Script #1: $NODE_STARTUP_SCRIPT_1"
-echo "* Node Startup Script #2: $NODE_STARTUP_SCRIPT_2"
+echo "* Python Startup Script #1: $PYTHON_STARTUP_SCRIPT_1"
+echo "* Python Startup Script #2: $PYTHON_STARTUP_SCRIPT_2"
 echo "*************************************************************"
 
 # Register SERVER_PORT to PORT in environment
@@ -164,9 +163,9 @@ echo "*************************************************************"
 echo "* Starting application..."
 echo "*************************************************************"
 # Run App
-$NODE_STARTUP_SCRIPT_1
+$PYTHON_STARTUP_SCRIPT_1
 
 # Empty line
 echo " "
 
-$NODE_STARTUP_SCRIPT_2
+$PYTHON_STARTUP_SCRIPT_2

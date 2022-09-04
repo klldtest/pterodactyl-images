@@ -29,7 +29,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: ./node18.Dockerfile
+          file: ./nodejs/node18.Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
           tags: sahrul012/pterodactyl-node-18:latest
@@ -57,7 +57,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: ./node16.Dockerfile
+          file: ./nodejs/node16.Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
           tags: sahrul012/pterodactyl-node-16:latest
@@ -85,7 +85,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: ./node14.Dockerfile
+          file: ./nodejs/node14.Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
           tags: sahrul012/pterodactyl-node-14:latest
