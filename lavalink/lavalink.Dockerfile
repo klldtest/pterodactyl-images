@@ -2,9 +2,9 @@ FROM openjdk:19-oracle
 
 LABEL MAINTAINER Sahrul Arsad, sahrularsad@yewonkim.tk
 
-RUN dnf install curl ca-certificates openssl git tar bash sqlite fontconfig util-linux xz \
-    && dnf groupinstall 'Development Tools' \
-    && dnf clean packages && dnf clean metadata && dnf clean headers && dnf clean all \
+RUN microdnf install curl ca-certificates openssl git tar bash sqlite fontconfig util-linux xz \
+    && microdnf groupinstall 'Development Tools' \
+    && microdnf clean packages && microdnf clean metadata && microdnf clean headers && microdnf clean all \
     && adduser --disabled-password --home /home/container container
 
 USER container
