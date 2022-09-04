@@ -10,9 +10,9 @@
     "description": "Node JS Egg with support Github and Shell Access",
     "features": null,
     "docker_images": {
-        "NodeJS 14": "sahrul012\/pterodactyl-nodejs:14",
-        "NodeJS 16": "sahrul012\/pterodactyl-nodejs:16",
-        "NodeJS 18": "sahrul012\/pterodactyl-nodejs:18"
+        "NodeJS 14": "sahrul012\/pterodactyl-images:nodejs_14",
+        "NodeJS 16": "sahrul012\/pterodactyl-images:nodejs_16",
+        "NodeJS 18": "sahrul012\/pterodactyl-images:nodejs_18"
     },
     "file_denylist": [],
     "startup": "bash \/start.sh",
