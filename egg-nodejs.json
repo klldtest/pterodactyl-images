@@ -10,15 +10,15 @@
     "description": "Node JS Egg with support Github and Shell Access",
     "features": null,
     "docker_images": {
-        "NodeJS 14": "sahrul012\/pterodactyl-node-14",
-        "NodeJS 16": "sahrul012\/pterodactyl-node-16",
-        "NodeJS 18": "sahrul012\/pterodactyl-node-18"
+        "NodeJS 14": "sahrul012\/pterodactyl-nodejs:14",
+        "NodeJS 16": "sahrul012\/pterodactyl-nodejs:16",
+        "NodeJS 18": "sahrul012\/pterodactyl-nodejs:18"
     },
     "file_denylist": [],
     "startup": "bash \/start.sh",
     "config": {
         "files": "{}",
-        "startup": "{\r\n    \"done\": [\r\n        \"Bot ready\",\r\n        \"Bot Ready\",\r\n        \"Ready\"\r\n    ]\r\n}",
+        "startup": "{\r\n    \"done\": [\r\n        \"Bot ready\",\r\n        \"Bot Ready\",\r\n        \"Ready\",\r\n        \"Running\",\r\n        \"* Starting application...\"\r\n    ]\r\n}",
         "logs": "{\r\n    \"custom\": false,\r\n    \"location\": \"logs\/latest.log\"\r\n}",
         "stop": "^C"
     },

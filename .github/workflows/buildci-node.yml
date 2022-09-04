@@ -32,7 +32,7 @@ jobs:
           file: ./nodejs/node18.Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: sahrul012/pterodactyl-node-18:latest
+          tags: sahrul012/pterodactyl-nodejs:18
           
   node16:
     runs-on: ubuntu-latest
@@ -60,7 +60,7 @@ jobs:
           file: ./nodejs/node16.Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: sahrul012/pterodactyl-node-16:latest
+          tags: sahrul012/pterodactyl-nodejs:16
           
   node14:
     runs-on: ubuntu-latest
@@ -88,4 +88,4 @@ jobs:
           file: ./nodejs/node14.Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: sahrul012/pterodactyl-node-14:latest
+          tags: sahrul012/pterodactyl-nodejs:14
