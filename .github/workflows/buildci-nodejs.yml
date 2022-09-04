@@ -1,4 +1,4 @@
-name: buildci-node
+name: buildci-nodejs
 
 on:
   push:
