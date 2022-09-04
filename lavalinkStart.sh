@@ -13,7 +13,7 @@ echo "*************************************************************"
 echo " "
 
 # Change {{SERVER MEMORY}} to SERVER MEMORY
-$LAVALINK_STARTUP_SCRIPT=${LAVALINK_STARTUP_SCRIPT//"{{SERVER_MEMORY}}"/"$SERVER_MEMORY"}
+LAVALINK_STARTUP_SCRIPT=${LAVALINK_STARTUP_SCRIPT//"{{SERVER_MEMORY}}"/"$SERVER_MEMORY"}
 
 # Output Current Settings
 echo "*************************************************************"
