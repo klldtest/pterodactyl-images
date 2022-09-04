@@ -19,6 +19,13 @@ jobs:
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
       -
+        name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GHCR_TOKEN }}
+      -
         name: Login to DockerHub
         uses: docker/login-action@v2
         with:
@@ -32,7 +39,17 @@ jobs:
           file: ./nodejs/node18.Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: sahrul012/pterodactyl-nodejs:18
+          tags: sahrul012/pterodactyl-images:nodejs_18
+      -
+        name: Run Tests
+        run: make tests
+      -
+        name: Push Image to multiple registries
+        uses: akhilerm/tag-push-action@v2.0.0
+        with:
+          src: docker.io/sahrul012/pterodactyl-images:nodejs_18
+          dst: |
+            ghcr.io/sahrulgamerz/pterodactyl-images:nodejs_18
           
   node16:
     runs-on: ubuntu-latest
@@ -47,6 +64,13 @@ jobs:
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
       -
+        name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GHCR_TOKEN }}
+      -
         name: Login to DockerHub
         uses: docker/login-action@v2
         with:
@@ -60,7 +84,17 @@ jobs:
           file: ./nodejs/node16.Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: sahrul012/pterodactyl-nodejs:16
+          tags: sahrul012/pterodactyl-images:nodejs_16
+      -
+        name: Run Tests
+        run: make tests
+      -
+        name: Push Image to multiple registries
+        uses: akhilerm/tag-push-action@v2.0.0
+        with:
+          src: docker.io/sahrul012/pterodactyl-images:nodejs_16
+          dst: |
+            ghcr.io/sahrulgamerz/pterodactyl-images:nodejs_16
           
   node14:
     runs-on: ubuntu-latest
@@ -75,6 +109,13 @@ jobs:
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
       -
+        name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GHCR_TOKEN }}
+      -
         name: Login to DockerHub
         uses: docker/login-action@v2
         with:
@@ -88,4 +129,14 @@ jobs:
           file: ./nodejs/node14.Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: sahrul012/pterodactyl-nodejs:14
+          tags: sahrul012/pterodactyl-images:nodejs_14
+      -
+        name: Run Tests
+        run: make tests
+      -
+        name: Push Image to multiple registries
+        uses: akhilerm/tag-push-action@v2.0.0
+        with:
+          src: docker.io/sahrul012/pterodactyl-images:nodejs_14
+          dst: |
+            ghcr.io/sahrulgamerz/pterodactyl-images:nodejs_14
