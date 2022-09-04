@@ -75,8 +75,14 @@ if [[ "$GIT_AUTO_PULL" == "TRUE" ]]; then
         echo "* Found .git folder. Pulling from existing repository..."
         echo "* Any changes made directly to this folder and subfolder will be lost!"
         echo "*************************************************************"
-        git config --local user.name $GITHUB_USERNAME
-        git config --local user.password $GITHUB_TOKEN
+
+        GITHUB_REPO=${GITHUB_REPO#*//}
+        if [[ $GITHUB_REPO = *.git ]]; then
+            git remote set-url origin "https://$GITHUB_USERNAME:$GITHUB_TOKEN@$GITHUB_REPO.git"
+        else
+            git remote set-url origin "https://$GITHUB_USERNAME:$GITHUB_TOKEN@$GITHUB_REPO.git"
+        fi
+
         git fetch --all
         git reset --hard origin/$GITHUB_BRANCH
     else 
@@ -86,20 +92,18 @@ if [[ "$GIT_AUTO_PULL" == "TRUE" ]]; then
         echo "* Pulling repository..."
         echo "* Any changes made directly to this folder and subfolder will be lost!"
         echo "*************************************************************"
-        git config --local user.name $GITHUB_USERNAME
-        git config --local user.password $GITHUB_TOKEN
-        #GITHUB_REPO=${GITHUB_REPO#*//}
-        if [[ $GITHUB_REPO = *.git ]]; then
-            #git clone --branch $GITHUB_BRANCH --progress "https://$GITHUB_USERNAME:$GITHUB_TOKEN@$GITHUB_REPO" temp
-            git clone --branch $GITHUB_BRANCH --progress $GITHUB_REPO temp
-        else
-            #git clone --branch $GITHUB_BRANCH --progress "https://$GITHUB_USERNAME:$GITHUB_TOKEN@$GITHUB_REPO.git" temp
-            git clone --branch $GITHUB_BRANCH --progress "$GITHUB_REPO.git" temp
-        fi
         
+        GITHUB_REPO=${GITHUB_REPO#*//}
+        if [[ $GITHUB_REPO = *.git ]]; then
+            git clone --branch $GITHUB_BRANCH --progress "https://$GITHUB_USERNAME:$GITHUB_TOKEN@$GITHUB_REPO" temp
+        else
+            git clone --branch $GITHUB_BRANCH --progress "https://$GITHUB_USERNAME:$GITHUB_TOKEN@$GITHUB_REPO.git" temp
+        fi
+
         for x in temp/* temp/.[!.]* temp/..?*; do
             if [ -e "$x" ]; then mv -- "$x" ./; fi
         done
+    
     fi
 else
     # Empty line
