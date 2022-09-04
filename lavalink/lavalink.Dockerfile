@@ -3,7 +3,7 @@ FROM openjdk:19-oracle
 LABEL MAINTAINER Sahrul Arsad, sahrularsad@yewonkim.tk
 
 RUN microdnf install curl ca-certificates openssl git tar bash sqlite fontconfig util-linux xz \
-    && microdnf clean packages && microdnf clean metadata && microdnf clean headers && microdnf clean all \
+    && microdnf clean all \
     && adduser --disabled-password --home /home/container container
 
 USER container
