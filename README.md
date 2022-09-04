@@ -4,3 +4,5 @@ Pterodactyl Images List for Personal/Hosting. Included with git, and shell acces
 NodeJS Image will be included with script from linux-utils, git, php8, python8
 
 Python Image will be included with script from linux-utils, git, php8
+
+Lavalink Image will be included with script from linux-utils, git
