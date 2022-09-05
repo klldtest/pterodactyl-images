@@ -11,7 +11,7 @@ echo "*************************************************************"
 scriptVer=$(script -V)
 
 if [[ "$scriptVer" == "script from util-linux 2.32.1" ]]; then
-    script -I /dev/null -O /dev/null -B /dev/null -q
+    script -q
 elif [[ "$scriptVer" == "script from util-linux 2.38" ]]; then
     script -I /dev/null -O /dev/null -B /dev/null -q
 else
