@@ -6,6 +6,8 @@ echo " "
 # Output Current Script | Python Version | Pip Version | PHP Version
 echo "*************************************************************"
 echo "* Script: "$(script -V)
+echo "* Python: "$(python --version)
+echo "* Pip: "$(pip --version)
 echo "* Java: "$(java -version)
 echo "*************************************************************"
 

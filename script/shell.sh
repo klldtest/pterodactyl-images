@@ -18,7 +18,6 @@ else
     script -I /dev/null -O /dev/null -B /dev/null -q
 fi
 
-
 # Empty line
 echo " "
 echo "*************************************************************"
