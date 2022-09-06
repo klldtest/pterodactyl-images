@@ -121,7 +121,7 @@ echo " "
 echo "*************************************************************"
 echo "* Changing password to "$LAVALINK_PASSWORD
 echo "*************************************************************"
-sed -r "s/^(\s*password\s*:\s*).*/\1${LAVALINK_PASSWORD}/" -i ./application.yml
+yq -i -y ".lavalink.server.password = \"${LAVALINK_PASSWORD}\"" ./application.yml
 
 # Change port
 # Empty line
@@ -129,7 +129,7 @@ echo " "
 echo "*************************************************************"
 echo "* Changing port to "$PORT
 echo "*************************************************************"
-sed -r "s/^(\s*port\s*:\s*).*/\1${PORT}/" -i ./application.yml
+yq -i -y ".server.port = \"${PORT}\"" ./application.yml
 
 # Run Shell
 if [[ "$SHELL_ACCESS" == "TRUE"  ]]; then
