@@ -4,7 +4,7 @@ LABEL MAINTAINER Sahrul Arsad, sahrularsad@yewonkim.tk
 
 RUN microdnf install curl ca-certificates openssl git tar bash sqlite fontconfig util-linux xz python38 jq \
     && microdnf clean all \
-    && pip install yq \
+    && pip3 install yq \
     && adduser --home-dir /home/container container
 
 USER container
