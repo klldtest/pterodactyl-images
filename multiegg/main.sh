@@ -1,0 +1,31 @@
+#!/bin/ash
+
+# Print current version manager list and environment variable
+echo "*************************************************************"
+echo "* App Version Manager Installed"
+echo "*************************************************************"
+echo "* nvm: $(nvm -v)"
+echo "* pyenv: $(pyenv -v)"
+echo "* jabba: $(jabba --version)"
+echo "*************************************************************"
+echo "* Github Variable"
+echo "*************************************************************"
+echo "* Github Username: $GITHUB_USERNAME"
+echo "* Github Token: $GITHUB_TOKEN (Please hide this in your screenshot)"
+echo "* Repository URL: $GITHUB_REPO"
+echo "* Repository Branch: $GITHUB_BRANCH"
+echo "* Github Auto Pull: $GIT_AUTO_PULL"
+echo "*************************************************************"
+echo "* Version Variable"
+echo "*************************************************************"
+echo "* NodeJS Version: $NODEJS_VERSION"
+echo "* Python Version: $PYTHON_VERSION"
+echo "* Java Version: $JAVA_VERSION"
+echo "*************************************************************"
+echo "* Startup Variable"
+echo "*************************************************************"
+echo "* Startup Script #1: $STARTUP_SCRIPT_1"
+echo "* Startup Script #2: $STARTUP_SCRIPT_2"
+echo "*************************************************************"
+
+ash -l 
