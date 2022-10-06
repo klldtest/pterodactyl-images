@@ -20,7 +20,7 @@ WORKDIR /home/container
 COPY ../script/entrypoint.sh /entrypoint.sh
 COPY ../script/node/nodeStart.sh /start.sh
 COPY ../script/github.sh /github.sh
-COPY ../script/shell.sh /shell.sh
+COPY ../script/shellv2.sh /shell.sh
 COPY ../script/node/nodeAutoInstall.sh /nodeAutoInstall.sh
 
 ENTRYPOINT ["/bin/bash", "-l","/entrypoint.sh"]
