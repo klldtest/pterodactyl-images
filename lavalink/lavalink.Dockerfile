@@ -2,10 +2,12 @@ FROM openjdk:19-oracle
 
 LABEL MAINTAINER Sahrul Arsad, sahrularsad@yewonkim.tk
 
-RUN microdnf install curl ca-certificates openssl git tar bash sqlite fontconfig util-linux xz python3 python3-pip jq \
-    && microdnf clean all \
-    && pip3 install yq \
-    && adduser --home-dir /home/container container
+RUN microdnf install curl ca-certificates openssl git tar bash sqlite fontconfig 
+RUN microdnf install xz python3 python3-pip jq neofetch
+RUN microdnf clean all 
+RUN pip3 install yq 
+
+RUN adduser --home-dir /home/container -u 995 container
 
 USER container
 ENV  USER=container HOME=/home/container
