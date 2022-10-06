@@ -1,0 +1,152 @@
+{
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "meta": {
+        "version": "PTDL_v2",
+        "update_url": "https://github.com/SahrulGamerz/pterodactyl/raw/main/egg-multiegg.json"
+    },
+    "exported_at": "2022-10-05T21:14:59+08:00",
+    "name": "MultiEgg",
+    "author": "sahrularsad@gmail.com",
+    "description": "Image container containing nvm (Node Version Manager), pyenv (Python Version Manager), jabba (Java Version Manager)",
+    "features": "Shell Access, Github Support, Customizable node, python, java version",
+    "docker_images": {
+        "MultiEgg": "multiegg"
+    },
+    "file_denylist": [],
+    "startup": "\/main.sh",
+    "config": {
+        "files": "{}",
+        "startup": "{\r\n    \"done\":    [\r\n        \"Bot ready\", \r\n        \"Bot Ready\",\r\n        \"Ready\",\r\n        \"Running\",\r\n        \"* Starting application...\"\r\n    ]\r\n}",
+        "logs": "{}",
+        "stop": "^C"
+    },
+    "scripts": {
+        "installation": {
+            "script": null,
+            "container": "alpine:latest",
+            "entrypoint": "ash"
+        }
+    },
+    "variables": [
+        {
+            "name": "GITHUB USERNAME",
+            "description": "",
+            "env_variable": "GITHUB_USERNAME",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "nullable|string|max:50",
+            "field_type": "text"
+        },
+        {
+            "name": "GITHUB TOKEN",
+            "description": "",
+            "env_variable": "GITHUB_TOKEN",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "nullable|string|max:50",
+            "field_type": "text"
+        },
+        {
+            "name": "GITHUB REPO",
+            "description": "",
+            "env_variable": "GITHUB_REPO",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "nullable|string|max:50",
+            "field_type": "text"
+        },
+        {
+            "name": "GITHUB BRANCH",
+            "description": "",
+            "env_variable": "GITHUB_BRANCH",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "nullable|string|max:50",
+            "field_type": "text"
+        },
+        {
+            "name": "GITHUB AUTO PULL",
+            "description": "",
+            "env_variable": "GITHUB_AUTO_PULL",
+            "default_value": "FALSE",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|in:FALSE,TRUE",
+            "field_type": "text"
+        },
+        {
+            "name": "SHELL ACCESS",
+            "description": "",
+            "env_variable": "SHELL_ACCESS",
+            "default_value": "FALSE",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|in:FALSE,TRUE",
+            "field_type": "text"
+        },
+        {
+            "name": "NODEJS VERSION",
+            "description": "",
+            "env_variable": "NODEJS_VERSION",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "nullable|string|max:20",
+            "field_type": "text"
+        },
+        {
+            "name": "PYTHON VERSION",
+            "description": "",
+            "env_variable": "PYTHON_VERSION",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "nullable|string|max:20",
+            "field_type": "text"
+        },
+        {
+            "name": "JAVA VERSION",
+            "description": "",
+            "env_variable": "JAVA_VERSION",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "nullable|string|max:20",
+            "field_type": "text"
+        },
+        {
+            "name": "COMING SOON",
+            "description": "",
+            "env_variable": "COMING_SOON",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": false,
+            "rules": "nullable|string|max:0",
+            "field_type": "text"
+        },
+        {
+            "name": "STARTUP SCRIPT 1",
+            "description": "",
+            "env_variable": "STARTUP_SCRIPT_1",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:50",
+            "field_type": "text"
+        },
+        {
+            "name": "STARTUP SCRIPT 2",
+            "description": "",
+            "env_variable": "STARTUP_SCRIPT_2",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "nullable|string|max:50",
+            "field_type": "text"
+        }
+    ]
+}
