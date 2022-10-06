@@ -13,7 +13,7 @@ ENV  USER=container HOME=/home/container
 WORKDIR /home/container
 
 COPY ../script/entrypoint.sh /entrypoint.sh
-COPY ../script/shell.sh /shell.sh
+COPY ../script/shellv2.sh /shell.sh
 COPY ../script/python/pythonStart.sh /start.sh
 
 CMD ["/bin/bash", "/entrypoint.sh"]
