@@ -166,7 +166,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: ./nodejs/node18.Dockerfile
+          file: ./python/python37.Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
           tags: sahrul012/pterodactyl-images:python_37
@@ -183,7 +183,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: ./nodejs/node16.Dockerfile
+          file: ./python/python38.Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
           tags: sahrul012/pterodactyl-images:python_38
@@ -200,7 +200,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: ./nodejs/node14.Dockerfile
+          file: ./python/python39.Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
           tags: sahrul012/pterodactyl-images:python_39
@@ -217,7 +217,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: ./nodejs/node14.Dockerfile
+          file: ./python/python310.Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
           tags: sahrul012/pterodactyl-images:python_310
@@ -234,7 +234,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: ./nodejs/node14.Dockerfile
+          file: ./python/python311.Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
           tags: sahrul012/pterodactyl-images:python_311
