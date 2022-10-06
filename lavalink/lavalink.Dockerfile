@@ -14,6 +14,6 @@ WORKDIR /home/container
 
 COPY ../script/entrypoint.sh /entrypoint.sh
 COPY ../script/shellv2.sh /shell.sh
-COPY ../script/lavalinkStart.sh /start.sh
+COPY ../script/lavalink/lavalinkStart.sh /start.sh
 
 CMD ["/bin/bash", "/entrypoint.sh"]
