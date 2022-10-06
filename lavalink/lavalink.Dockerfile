@@ -2,7 +2,7 @@ FROM openjdk:19-oracle
 
 LABEL MAINTAINER Sahrul Arsad, sahrularsad@yewonkim.tk
 
-RUN microdnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+RUN microdnf install epel-release
 RUN microdnf install curl ca-certificates openssl git tar bash sqlite fontconfig 
 RUN microdnf install xz python3 python3-pip jq neofetch
 RUN microdnf clean all 

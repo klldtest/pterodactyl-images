@@ -14,6 +14,6 @@ WORKDIR /home/container
 
 COPY ../script/entrypoint.sh /entrypoint.sh
 COPY ../script/shell.sh /shell.sh
-COPY ../script/pythonStart.sh /start.sh
+COPY ../script/python/pythonStart.sh /start.sh
 
 CMD ["/bin/bash", "/entrypoint.sh"]
