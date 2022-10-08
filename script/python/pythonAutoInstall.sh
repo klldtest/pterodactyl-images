@@ -7,8 +7,24 @@ if [[ "$AUTO_INSTALL_PACKAGE" == "TRUE"  ]]; then
     echo "* Installing dependencies..."
     echo "*************************************************************"
     if [ -f "./Pipfile" ]; then
+        # Install or upgrading pipenv
+        echo " "
+        echo "*************************************************************"
+        echo "* Updating PATH"
+        echo "*************************************************************"
+        export PATH="/home/container/.local/bin:"$PATH
+        echo " "
+        echo "*************************************************************"
+        echo "* Upgading pipenv"
+        echo "*************************************************************"
+        pip install --user --upgrade pipenv
+        echo "*************************************************************"
+        echo " "
+        echo "*************************************************************"
+        echo "* Changing pipenv python path"
+        echo "*************************************************************"
+        pipenv --python /usr/local/bin/python
         pipenv install
-        pipenv shell
     elif [ -f "./requirements.txt" ]; then
         pip install -r ./requirements.txt
     else

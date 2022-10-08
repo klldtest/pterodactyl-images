@@ -1,24 +1,5 @@
 #!/bin/bash
 
-# Install or upgrading pipenv
-echo " "
-echo "*************************************************************"
-echo "* Upgading pipenv"
-echo "*************************************************************"
-pip install --user --upgrade pipenv
-echo " "
-echo "*************************************************************"
-echo "* Updating PATH"
-echo "*************************************************************"
-export PATH="/home/container/.local/bin:"$PATH
-echo "Done"
-echo "*************************************************************"
-echo " "
-echo "*************************************************************"
-echo "* Changing pipenv python path"
-echo "*************************************************************"
-pipenv --python /usr/local/bin/python
-
 # Print current version manager list and environment variable
 echo " "
 echo "*************************************************************"
@@ -75,11 +56,16 @@ echo " "
 echo "*************************************************************"
 echo "* Starting application..."
 echo "*************************************************************"
-$STARTUP_SCRIPT_1
-echo " "
-echo "*************************************************************"
-$STARTUP_SCRIPT_2
-echo " "
+if [ -f "./Pipfile" ]; then
+    script="echo \"$(whoami)@$(hostname):${HOME}$ ${STARTUP_SCRIPT_1}\"; $STARTUP_SCRIPT_1; echo ' '; echo \"$(whoami)@$(hostname):${HOME}$ ${STARTUP_SCRIPT_2}\"; $STARTUP_SCRIPT_2; exit 0"
+    pipenv shell $script
+else
+    echo "$(whoami)@$(hostname):${HOME}$ ${STARTUP_SCRIPT_1}"
+    $STARTUP_SCRIPT_1
+    echo " "
+    echo "$(whoami)@$(hostname):${HOME}$ ${STARTUP_SCRIPT_2}"
+    $STARTUP_SCRIPT_2
+fi
 echo "*************************************************************"
 echo "* Application stopped!"
 echo "*************************************************************"

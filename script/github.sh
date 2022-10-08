@@ -31,48 +31,72 @@ if [[ "$GIT_AUTO_PULL" == "TRUE" ]]; then
         echo "* Any changes made directly to this folder and subfolder will be lost!"
         echo "*************************************************************"
 
-        GITHUB_REPO=${GITHUB_REPO#*//}
-        if [[ $GITHUB_REPO = *.git ]]; then
-            if [ "$GITHUB_USERNAME" == "" ] && [ "$GITHUB_TOKEN" == "" ]; then
-                git remote set-url origin "https://$GITHUB_REPO"
-            else 
-                git remote set-url origin "https://$GITHUB_USERNAME:$GITHUB_TOKEN@$GITHUB_REPO"
-            fi
-        else
-            if [ "$GITHUB_USERNAME" == "" ] && [ "$GITHUB_TOKEN" == "" ]; then
-                git remote set-url origin "https://$GITHUB_REPO.git"
-            else 
-                git remote set-url origin "https://$GITHUB_USERNAME:$GITHUB_TOKEN@$GITHUB_REPO.git"
-            fi
-            
-        fi
+        while true; do
 
-        git fetch --all
-        git reset --hard origin/$GITHUB_BRANCH
+            echo "Do you want to proceed? (y/n)"
+            read -p "Answer: " yn
+
+            case $yn in 
+                [nN] ) echo "Skipping...";
+                    break;;
+                [yY] ) 
+                    GITHUB_REPO=${GITHUB_REPO#*//}
+                    if [[ $GITHUB_REPO = *.git ]]; then
+                        if [ "$GITHUB_USERNAME" == "" ] && [ "$GITHUB_TOKEN" == "" ]; then
+                            git remote set-url origin "https://$GITHUB_REPO"
+                        else 
+                            git remote set-url origin "https://$GITHUB_USERNAME:$GITHUB_TOKEN@$GITHUB_REPO"
+                        fi
+                    else
+                        if [ "$GITHUB_USERNAME" == "" ] && [ "$GITHUB_TOKEN" == "" ]; then
+                            git remote set-url origin "https://$GITHUB_REPO.git"
+                        else 
+                            git remote set-url origin "https://$GITHUB_USERNAME:$GITHUB_TOKEN@$GITHUB_REPO.git"
+                        fi
+                    fi
+
+                    git fetch --all
+                    git reset --hard origin/$GITHUB_BRANCH;;
+                * ) echo "Invalid Response";;
+            esac
+
+        done
     else 
         echo " "
         echo "*************************************************************"
         echo "* Pulling repository..."
         echo "* Any changes made directly to this folder and subfolder will be lost!"
         echo "*************************************************************"
+        
+        while true; do
+            echo "Do you want to proceed? (y/n)"
+            read -p "Answer: " yn
 
-        GITHUB_REPO=${GITHUB_REPO#*//}
-        if [[ $GITHUB_REPO = *.git ]]; then
-            if [ "$GITHUB_USERNAME" == "" ] && [ "$GITHUB_TOKEN" == "" ]; then
-                git clone --branch $GITHUB_BRANCH --progress "https://$GITHUB_REPO" temp
-            else 
-                git clone --branch $GITHUB_BRANCH --progress "https://$GITHUB_USERNAME:$GITHUB_TOKEN@$GITHUB_REPO" temp
-            fi
-        else
-            if [ "$GITHUB_USERNAME" == "" ] && [ "$GITHUB_TOKEN" == "" ]; then
-                git clone --branch $GITHUB_BRANCH --progress "https://$GITHUB_REPO.git" temp
-            else 
-                git clone --branch $GITHUB_BRANCH --progress "https://$GITHUB_USERNAME:$GITHUB_TOKEN@$GITHUB_REPO.git" temp
-            fi
-        fi
+            case $yn in 
+                [nN] ) echo "Skipping...";
+                    break;;
+                [yY] ) 
+                    GITHUB_REPO=${GITHUB_REPO#*//}
+                    if [[ $GITHUB_REPO = *.git ]]; then
+                        if [ "$GITHUB_USERNAME" == "" ] && [ "$GITHUB_TOKEN" == "" ]; then
+                            git clone --branch $GITHUB_BRANCH --progress "https://$GITHUB_REPO" temp
+                        else 
+                            git clone --branch $GITHUB_BRANCH --progress "https://$GITHUB_USERNAME:$GITHUB_TOKEN@$GITHUB_REPO" temp
+                        fi
+                    else
+                        if [ "$GITHUB_USERNAME" == "" ] && [ "$GITHUB_TOKEN" == "" ]; then
+                            git clone --branch $GITHUB_BRANCH --progress "https://$GITHUB_REPO.git" temp
+                        else 
+                            git clone --branch $GITHUB_BRANCH --progress "https://$GITHUB_USERNAME:$GITHUB_TOKEN@$GITHUB_REPO.git" temp
+                        fi
+                    fi
 
-        for x in temp/* temp/.[!.]* temp/..?*; do
-            if [ -e "$x" ]; then mv -- "$x" ./; fi
+                    for x in temp/* temp/.[!.]* temp/..?*; do
+                        if [ -e "$x" ]; then mv -- "$x" ./; fi
+                    done;;
+                * ) echo "Invalid Response";;
+            esac
+
         done
     fi
 else
