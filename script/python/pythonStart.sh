@@ -6,7 +6,18 @@ echo "*************************************************************"
 echo "* Upgading pipenv"
 echo "*************************************************************"
 pip install --user --upgrade pipenv
+echo " "
+echo "*************************************************************"
+echo "* Updating PATH"
+echo "*************************************************************"
 export PATH="/home/container/.local/bin:"$PATH
+echo "Done"
+echo "*************************************************************"
+echo " "
+echo "*************************************************************"
+echo "* Changing pipenv python path"
+echo "*************************************************************"
+pipenv --python /usr/local/bin/python
 
 # Print current version manager list and environment variable
 echo " "
