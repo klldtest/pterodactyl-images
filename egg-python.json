@@ -2,17 +2,19 @@
     "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
     "meta": {
         "version": "PTDL_v2",
-        "update_url": "https://github.com/SahrulGamerz/pterodactyl/raw/main/egg-nodejs.json"
+        "update_url": "https://github.com/SahrulGamerz/pterodactyl/raw/main/egg-python.json"
     },
     "exported_at": "2022-08-23T18:19:18+08:00",
-    "name": "NodeJS",
+    "name": "Python",
     "author": "sahrularsad@gmail.com",
-    "description": "Node JS Egg with support Github and Shell Access",
+    "description": "Python Egg with support Github and Shell Access",
     "features": null,
     "docker_images": {
-        "NodeJS 14": "sahrul012\/pterodactyl-images:nodejs_14",
-        "NodeJS 16": "sahrul012\/pterodactyl-images:nodejs_16",
-        "NodeJS 18": "sahrul012\/pterodactyl-images:nodejs_18"
+        "Python 3.7": "sahrul012\/pterodactyl-images:python_37",
+        "Python 3.8": "sahrul012\/pterodactyl-images:python_38",
+        "Python 3.9": "sahrul012\/pterodactyl-images:python_39",
+        "Python 3.10": "sahrul012\/pterodactyl-images:python_310",
+        "Python 3.11": "sahrul012\/pterodactyl-images:python_311"
     },
     "file_denylist": [],
     "startup": "bash \/start.sh",
@@ -85,26 +87,6 @@
             "description": "Enable shell access to the container. Useful for debugging or testing purposes.",
             "env_variable": "SHELL_ACCESS",
             "default_value": "FALSE",
-            "user_viewable": true,
-            "user_editable": true,
-            "rules": "required|in:FALSE,TRUE",
-            "field_type": "text"
-        },
-        {
-            "name": "Package Manager",
-            "description": "Available package manager 'npm', 'yarn', 'pnpm'",
-            "env_variable": "PACKAGE_MANAGER",
-            "default_value": "npm",
-            "user_viewable": true,
-            "user_editable": true,
-            "rules": "required|in:npm,yarn,pnpm",
-            "field_type": "text"
-        },
-        {
-            "name": "Auto Install Package",
-            "description": "Automatic install package. package.json must be available in your home directory.",
-            "env_variable": "AUTO_INSTALL_PACKAGE",
-            "default_value": "TRUE",
             "user_viewable": true,
             "user_editable": true,
             "rules": "required|in:FALSE,TRUE",

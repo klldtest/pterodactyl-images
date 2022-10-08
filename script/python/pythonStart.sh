@@ -23,15 +23,13 @@ echo "*************************************************************"
 echo "* Optional Variable"
 echo "*************************************************************"
 echo "* Shell Access: $SHELL_ACCESS"
-echo "* Package Manager: $PACKAGE_MANAGER"
-echo "* Auto Install Package: $AUTO_INSTALL_PACKAGE"
 echo "*************************************************************"
 echo " "
 echo "*************************************************************"
 echo "* Startup Variable"
 echo "*************************************************************"
-echo "* Startup Script #1: $PYTHON_STARTUP_SCRIPT_1"
-echo "* Startup Script #2: $PYTHON_STARTUP_SCRIPT_2"
+echo "* Startup Script #1: $STARTUP_SCRIPT_1"
+echo "* Startup Script #2: $STARTUP_SCRIPT_2"
 echo "*************************************************************"
 echo " "
 echo "*************************************************************"
@@ -49,7 +47,6 @@ rm -rf temp
 
 bash -l /github.sh
 bash -l /shell.sh
-bash -l /pythonAutoInstall.sh
 
 # Run App
 echo " "

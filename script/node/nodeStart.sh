@@ -32,8 +32,8 @@ echo " "
 echo "*************************************************************"
 echo "* Startup Variable"
 echo "*************************************************************"
-echo "* Startup Script #1: $NODE_STARTUP_SCRIPT_1"
-echo "* Startup Script #2: $NODE_STARTUP_SCRIPT_2"
+echo "* Startup Script #1: $STARTUP_SCRIPT_1"
+echo "* Startup Script #2: $STARTUP_SCRIPT_2"
 echo "*************************************************************"
 echo " "
 echo "*************************************************************"
@@ -58,10 +58,10 @@ echo " "
 echo "*************************************************************"
 echo "* Starting application..."
 echo "*************************************************************"
-$NODE_STARTUP_SCRIPT_1
+$STARTUP_SCRIPT_1
 echo " "
 echo "*************************************************************"
-$NODE_STARTUP_SCRIPT_2
+$STARTUP_SCRIPT_2
 echo " "
 echo "*************************************************************"
 echo "* Application stopped!"
