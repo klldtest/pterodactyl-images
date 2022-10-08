@@ -93,6 +93,26 @@
             "field_type": "text"
         },
         {
+            "name": "Auto Install Package",
+            "description": "Automatic install package. requirements.txt or pipfile must be available in your home directory.",
+            "env_variable": "AUTO_INSTALL_PACKAGE",
+            "default_value": "TRUE",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|in:FALSE,TRUE",
+            "field_type": "text"
+        },
+        {
+            "name": "Spacer",
+            "description": "",
+            "env_variable": "Spacer_Spacer",
+            "default_value": "FALSE",
+            "user_viewable": true,
+            "user_editable": false,
+            "rules": "required|in:FALSE,TRUE",
+            "field_type": "text"
+        },
+        {
             "name": "Startup Script 1 (Required)",
             "description": "Primary application startup script. Can be 'python main.py' or etc.",
             "env_variable": "STARTUP_SCRIPT_1",

@@ -1,12 +1,20 @@
 #!/bin/bash
 
+# Install or upgrading pipenv
+echo " "
+echo "*************************************************************"
+echo "* Upgading pipenv"
+echo "*************************************************************"
+pip install --user --upgrade pipenv
+
 # Print current version manager list and environment variable
 echo " "
 echo "*************************************************************"
 echo "* Version"
 echo "*************************************************************"
-echo "* Python: "$(python --version)
-echo "* Pip: "$(pip --version)
+echo "* Python: $(python --version)"
+echo "* Pip: $(pip --version)"
+echo "* Pipenv: $(pipenv --version)"
 echo "*************************************************************"
 echo " "
 echo "*************************************************************"
@@ -23,6 +31,7 @@ echo "*************************************************************"
 echo "* Optional Variable"
 echo "*************************************************************"
 echo "* Shell Access: $SHELL_ACCESS"
+echo "* Auto Install Package: $AUTO_INSTALL_PACKAGE"
 echo "*************************************************************"
 echo " "
 echo "*************************************************************"
@@ -47,6 +56,7 @@ rm -rf temp
 
 bash -l /github.sh
 bash -l /shell.sh
+bash -l /pythonAutoInstall.sh
 
 # Run App
 echo " "

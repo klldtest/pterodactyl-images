@@ -2,7 +2,6 @@
 
 # Run package installation
 if [[ "$AUTO_INSTALL_PACKAGE" == "TRUE"  ]]; then
-    # Empty line
     echo " "
     echo "*************************************************************"
     echo "* Installing dependencies..."
@@ -14,15 +13,14 @@ if [[ "$AUTO_INSTALL_PACKAGE" == "TRUE"  ]]; then
     elif [[ "$PACKAGE_MANAGER" == "pnpm" ]]; then
         pnpm install
     else
-        # Empty line
         echo " "
         echo "*************************************************************"
         echo "* Invalid package manager"
         echo "*************************************************************"
         exit 1
     fi
+    echo "*************************************************************"
 else
-    # Empty line
     echo " "
     echo "*************************************************************"
     echo "* Skipping automatic dependencies install..."

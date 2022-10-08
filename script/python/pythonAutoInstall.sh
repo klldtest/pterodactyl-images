@@ -2,25 +2,19 @@
 
 # Run package installation
 if [[ "$AUTO_INSTALL_PACKAGE" == "TRUE"  ]]; then
-    # Empty line
     echo " "
     echo "*************************************************************"
     echo "* Installing dependencies..."
     echo "*************************************************************"
-    if [[ "$PACKAGE_MANAGER" == "npm" ]]; then
-        npm install
-    elif [[ "$PACKAGE_MANAGER" == "yarn" ]]; then
-        yarn install
-    elif [[ "$PACKAGE_MANAGER" == "pnpm" ]]; then
-        pnpm install
+    if [ -f "./Pipfile" ]; then
+        pipenv install
+        pipenv shell
+    elif [ -f "./requirements.txt" ]; then
+        pip install -r ./requirements.txt
     else
-        # Empty line
-        echo " "
-        echo "*************************************************************"
-        echo "* Invalid package manager"
-        echo "*************************************************************"
-        exit 1
+        echo "* requirements.txt and Pipfile not found. Skipping..."
     fi
+    echo "*************************************************************"
 else
     # Empty line
     echo " "
