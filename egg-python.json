@@ -94,9 +94,9 @@
         },
         {
             "name": "Startup Script 1 (Required)",
-            "description": "Primary application startup script. Can be 'npm run scriptname', 'node index.js' or etc.",
+            "description": "Primary application startup script. Can be 'python main.py' or etc.",
             "env_variable": "STARTUP_SCRIPT_1",
-            "default_value": "node .",
+            "default_value": "python main.py",
             "user_viewable": true,
             "user_editable": true,
             "rules": "required|string|max:50",
@@ -104,7 +104,7 @@
         },
         {
             "name": "Startup Script 2 (Optional)",
-            "description": "Secondary application startup script. Can be 'npm run scriptname', 'node index.js' or etc.",
+            "description": "Secondary application startup script. Can be 'python main.py' or etc.",
             "env_variable": "STARTUP_SCRIPT_2",
             "default_value": "",
             "user_viewable": true,

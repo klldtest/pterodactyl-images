@@ -53,10 +53,10 @@ echo " "
 echo "*************************************************************"
 echo "* Starting application..."
 echo "*************************************************************"
-$PYTHON_STARTUP_SCRIPT_1
+$STARTUP_SCRIPT_1
 echo " "
 echo "*************************************************************"
-$PYTHON_STARTUP_SCRIPT_2
+$STARTUP_SCRIPT_2
 echo " "
 echo "*************************************************************"
 echo "* Application stopped!"
