@@ -43,6 +43,7 @@ if [[ "$GIT_AUTO_PULL" == "TRUE" ]]; then
                 echo "* Skipping overwrite warning"
                 echo "* Change the setting \"SKIP OVERWRITE WARNING\" in Startup tab"
                 echo "*************************************************************"
+                yn=y
             fi
 
             case $yn in 
