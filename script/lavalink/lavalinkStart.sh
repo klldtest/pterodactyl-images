@@ -148,5 +148,5 @@ echo "*************************************************************"
 echo "* Starting application..."
 echo "*************************************************************"
 # Run App
-echo "$(whoami)@$(hostname):${HOME}$ ${LAVALINK_STARTUP_SCRIPT}"
+echo "${USER}@$(hostname):${HOME}$ ${LAVALINK_STARTUP_SCRIPT}"
 $LAVALINK_STARTUP_SCRIPT

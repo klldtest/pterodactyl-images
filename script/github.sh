@@ -33,8 +33,17 @@ if [[ "$GIT_AUTO_PULL" == "TRUE" ]]; then
 
         while true; do
 
-            echo "Do you want to proceed? (y/n)"
-            read -p "Answer: " yn
+            if [[ "$SKIP_OVERWRITE_WARNING" == "FALSE" ]]; then
+                echo "Change the setting \"SKIP OVERWRITE WARNING\" in Startup tab"
+                echo "Do you want to proceed? (y/n)"
+                read -p "Answer: " yn
+            else
+                echo " "
+                echo "*************************************************************"
+                echo "* Skipping overwrite warning"
+                echo "* Change the setting \"SKIP OVERWRITE WARNING\" in Startup tab"
+                echo "*************************************************************"
+            fi
 
             case $yn in 
                 [nN] ) echo "Skipping...";
@@ -69,8 +78,18 @@ if [[ "$GIT_AUTO_PULL" == "TRUE" ]]; then
         echo "*************************************************************"
         
         while true; do
-            echo "Do you want to proceed? (y/n)"
-            read -p "Answer: " yn
+        
+            if [[ "$SKIP_OVERWRITE_WARNING" == "FALSE" ]]; then
+                echo "Change the setting \"SKIP OVERWRITE WARNING\" in Startup tab"
+                echo "Do you want to proceed? (y/n)"
+                read -p "Answer: " yn
+            else
+                echo " "
+                echo "*************************************************************"
+                echo "* Skipping overwrite warning"
+                echo "* Change the setting \"SKIP OVERWRITE WARNING\" in Startup tab"
+                echo "*************************************************************"
+            fi
 
             case $yn in 
                 [nN] ) echo "Skipping...";

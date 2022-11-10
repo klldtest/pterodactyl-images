@@ -25,6 +25,7 @@ echo "* Optional Variable"
 echo "*************************************************************"
 echo "* Shell Access: $SHELL_ACCESS"
 echo "* Auto Install Package: $AUTO_INSTALL_PACKAGE"
+echo "* Skip Overwrite Warning: $SKIP_OVERWRITE_WARNIGN"
 echo "*************************************************************"
 echo " "
 echo "*************************************************************"
@@ -57,13 +58,13 @@ echo "*************************************************************"
 echo "* Starting application..."
 echo "*************************************************************"
 if [ -f "./Pipfile" ]; then
-    script="echo \"$(whoami)@$(hostname):${HOME}$ ${STARTUP_SCRIPT_1}\"; $STARTUP_SCRIPT_1; echo ' '; echo \"$(whoami)@$(hostname):${HOME}$ ${STARTUP_SCRIPT_2}\"; $STARTUP_SCRIPT_2; exit 0"
+    script="echo \"${USER}@$(hostname):${HOME}$ ${STARTUP_SCRIPT_1}\"; $STARTUP_SCRIPT_1; echo ' '; echo \"${USER}@$(hostname):${HOME}$ ${STARTUP_SCRIPT_2}\"; $STARTUP_SCRIPT_2; exit 0"
     pipenv shell $script
 else
-    echo "$(whoami)@$(hostname):${HOME}$ ${STARTUP_SCRIPT_1}"
+    echo "${USER}@$(hostname):${HOME}$ ${STARTUP_SCRIPT_1}"
     $STARTUP_SCRIPT_1
     echo " "
-    echo "$(whoami)@$(hostname):${HOME}$ ${STARTUP_SCRIPT_2}"
+    echo "${USER}@$(hostname):${HOME}$ ${STARTUP_SCRIPT_2}"
     $STARTUP_SCRIPT_2
 fi
 echo "*************************************************************"

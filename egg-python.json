@@ -103,12 +103,12 @@
             "field_type": "text"
         },
         {
-            "name": "Spacer",
-            "description": "",
-            "env_variable": "Spacer_Spacer",
+            "name": "Skip Overwrite Warning",
+            "description": "Skip folder(s)/file(s) warning when enabling automatic pull.",
+            "env_variable": "SKIP_OVERWRITE_WARNING",
             "default_value": "FALSE",
             "user_viewable": true,
-            "user_editable": false,
+            "user_editable": true,
             "rules": "required|in:FALSE,TRUE",
             "field_type": "text"
         },

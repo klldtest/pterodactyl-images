@@ -11,7 +11,7 @@ RUN microdnf install xz python3 python3-pip jq neofetch opus ffmpeg ffmpeg-devel
 RUN microdnf clean all 
 RUN pip3 install yq 
 
-RUN adduser --home-dir /home/container -u 995 container
+RUN adduser --home-dir /home/container container
 
 USER container
 ENV  USER=container HOME=/home/container

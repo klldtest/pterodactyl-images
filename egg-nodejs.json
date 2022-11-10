@@ -91,6 +91,26 @@
             "field_type": "text"
         },
         {
+            "name": "Skip Overwrite Warning",
+            "description": "Skip folder(s)/file(s) warning when enabling automatic pull.",
+            "env_variable": "SKIP_OVERWRITE_WARNING",
+            "default_value": "FALSE",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|in:FALSE,TRUE",
+            "field_type": "text"
+        },
+        {
+            "name": "BLANK SPACES",
+            "description": "BLANK TAP",
+            "env_variable": "BLANK_SHOT",
+            "default_value": "FALSE",
+            "user_viewable": true,
+            "user_editable": false,
+            "rules": "required|in:FALSE,TRUE",
+            "field_type": "text"
+        },
+        {
             "name": "Package Manager",
             "description": "Available package manager 'npm', 'yarn', 'pnpm'",
             "env_variable": "PACKAGE_MANAGER",

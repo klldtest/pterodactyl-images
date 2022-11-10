@@ -11,10 +11,10 @@ RUN ln -sf python3 /usr/bin/python
 RUN python3 -m ensurepip 
 RUN pip3 install --no-cache --upgrade pip setuptools 
 
-RUN adduser --disabled-password --home /home/container -u 995 container
+RUN adduser --disabled-password --home /home/container container
 
 USER container
-ENV  USER=container HOME=/home/container
+ENV USER=container HOME=/home/container
 
 WORKDIR /home/container
 

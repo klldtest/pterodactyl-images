@@ -12,7 +12,7 @@ echo "PS1='\[\033[1;36m\]\u\[\033[1;31m\]@\[\033[1;32m\]\h:\[\033[1;35m\]\w\[\03
 
 # Replace Startup Variables
 MODIFIED_STARTUP=`eval echo $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')`
-echo "$(whoami)@$(hostname):${HOME}$ ${MODIFIED_STARTUP}"
+echo "${USER}@$(hostname):${HOME}$ ${MODIFIED_STARTUP}"
 
 # Run the Server
 ${MODIFIED_STARTUP}
