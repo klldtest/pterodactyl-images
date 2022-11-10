@@ -13,10 +13,10 @@ ENV  USER=container HOME=/home/container
 
 WORKDIR /home/container
 
-COPY ../script/entrypoint.sh /entrypoint.sh
-COPY ../script/python/pythonStart.sh /start.sh
-COPY ../script/github.sh /github.sh
-COPY ../script/shellv2.sh /shell.sh
-COPY ../script/python/pythonAutoInstall.sh /pythonAutoInstall.sh
+COPY ./script/entrypoint.sh /entrypoint.sh
+COPY ./script/python/pythonStart.sh /start.sh
+COPY ./script/github.sh /github.sh
+COPY ./script/shellv2.sh /shell.sh
+COPY ./script/python/pythonAutoInstall.sh /pythonAutoInstall.sh
 
 CMD ["/bin/bash", "/entrypoint.sh"]
