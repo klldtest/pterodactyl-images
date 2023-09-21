@@ -19,10 +19,13 @@ COPY ./script/github.sh /github.sh
 COPY ./script/shellv2.sh /shell.sh
 COPY ./script/python/pythonAutoInstall.sh /pythonAutoInstall.sh
 
+USER root
 RUN chmod a+x /entrypoint.sh
 RUN chmod a+x /start.sh
 RUN chmod a+x /github.sh
 RUN chmod a+x /shell.sh
 RUN chmod a+x /pythonAutoInstall.sh
+
+USER container
 
 ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]

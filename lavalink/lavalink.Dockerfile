@@ -22,8 +22,11 @@ COPY ./script/entrypoint.sh /entrypoint.sh
 COPY ./script/shellv2.sh /shell.sh
 COPY ./script/lavalink/lavalinkStart.sh /start.sh
 
+USER root
 RUN chmod a+x /entrypoint.sh
 RUN chmod a+x /shell.sh
 RUN chmod a+x /lavalinkStart.sh
+
+USER container
 
 CMD ["/bin/bash", "/entrypoint.sh"]
