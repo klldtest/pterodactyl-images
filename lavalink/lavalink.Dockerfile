@@ -14,12 +14,16 @@ RUN pip3 install yq
 RUN adduser --home-dir /home/container container
 
 USER container
-ENV  USER=container HOME=/home/container
+ENV USER=container HOME=/home/container
 
 WORKDIR /home/container
 
 COPY ./script/entrypoint.sh /entrypoint.sh
 COPY ./script/shellv2.sh /shell.sh
 COPY ./script/lavalink/lavalinkStart.sh /start.sh
+
+RUN chmod a+x /entrypoint.sh
+RUN chmod a+x /shell.sh
+RUN chmod a+x /lavalinkStart.sh
 
 CMD ["/bin/bash", "/entrypoint.sh"]

@@ -9,7 +9,7 @@ RUN apk add --no-cache --update build-base xz php8 ffmpeg libffi-dev py3-libnacl
 RUN adduser --disabled-password --home /home/container container
 
 USER container
-ENV  USER=container HOME=/home/container
+ENV USER=container HOME=/home/container
 
 WORKDIR /home/container
 
@@ -19,4 +19,10 @@ COPY ./script/github.sh /github.sh
 COPY ./script/shellv2.sh /shell.sh
 COPY ./script/python/pythonAutoInstall.sh /pythonAutoInstall.sh
 
-ENTRYPOINT ["/bin/bash", "-l","/entrypoint.sh"]
+RUN chmod a+x /entrypoint.sh
+RUN chmod a+x /start.sh
+RUN chmod a+x /github.sh
+RUN chmod a+x /shell.sh
+RUN chmod a+x /pythonAutoInstall.sh
+
+ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]

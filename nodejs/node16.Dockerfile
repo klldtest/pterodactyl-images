@@ -24,4 +24,10 @@ COPY ./script/github.sh /github.sh
 COPY ./script/shellv2.sh /shell.sh
 COPY ./script/node/nodeAutoInstall.sh /nodeAutoInstall.sh
 
+RUN chmod a+x /entrypoint.sh
+RUN chmod a+x /start.sh
+RUN chmod a+x /github.sh
+RUN chmod a+x /shell.sh
+RUN chmod a+x /nodeAutoInstall.sh
+
 ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
