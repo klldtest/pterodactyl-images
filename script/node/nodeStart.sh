@@ -56,6 +56,9 @@ cd / && ./github.sh
 cd / && ./shell.sh
 cd / && ./nodeAutoInstall.sh
 
+# cd into container
+cd /home/container
+
 # Run App
 echo " "
 echo "*************************************************************"

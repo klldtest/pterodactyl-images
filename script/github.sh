@@ -70,7 +70,7 @@ if [[ "$GIT_AUTO_PULL" == "TRUE" ]]; then
             fi
 
             if [[ $GITHUB_REPO = *.git ]]; then
-            
+                echo " "
             else
                 if [ "$GITHUB_USERNAME" == "" ] && [ "$GITHUB_TOKEN" == "" ]; then
                     git remote set-url origin "https://$GITHUB_REPO.git"
