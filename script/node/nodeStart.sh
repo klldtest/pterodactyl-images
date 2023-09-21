@@ -52,9 +52,9 @@ echo "*************************************************************"
 # Remove temp folder
 rm -rf temp
 
-github.sh
-shell.sh
-nodeAutoInstall.sh
+cd / && ./github.sh
+cd / && ./shell.sh
+cd / && ./nodeAutoInstall.sh
 
 # Run App
 echo " "
