@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Save to var 
+ORIGINAL_LAVALINK="https://github.com/freyacodes/Lavalink/releases/latest/download/Lavalink.jar"
+MODIFIED_LAVALINK="https://github.com/davidffa/lavalink/releases/latest/download/Lavalink.jar"
+ORIGINAL_LAVALINK_CONF="https://raw.githubusercontent.com/davidffa/lavalink/dev/application.yml.example"
+MODIFIED_LAVALINK_CONF="https://raw.githubusercontent.com/freyacodes/Lavalink/master/LavalinkServer/application.yml.example"
+
 # Empty line
 echo " "
 
@@ -131,7 +137,7 @@ echo "*************************************************************"
 yq -i -y ".server.port = \"${PORT}\"" ./application.yml
 
 # Run Shell
-if [[ "$SHELL_ACCESS" == "TRUE"  ]]; then
+if [[ "$SHELL_ACCESS" == "TRUE" ]]; then
     bash /shell.sh
 else
     # Empty line

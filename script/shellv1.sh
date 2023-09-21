@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd /home/container
+
 # Empty line
 echo " "
 echo "*************************************************************"

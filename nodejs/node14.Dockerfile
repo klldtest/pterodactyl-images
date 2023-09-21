@@ -14,7 +14,7 @@ RUN pip3 install --no-cache --upgrade pip setuptools
 RUN adduser --disabled-password --home /home/container container
 
 USER container
-ENV  USER=container HOME=/home/container
+ENV USER=container HOME=/home/container
 
 WORKDIR /home/container
 
@@ -24,4 +24,4 @@ COPY ./script/github.sh /github.sh
 COPY ./script/shellv2.sh /shell.sh
 COPY ./script/node/nodeAutoInstall.sh /nodeAutoInstall.sh
 
-ENTRYPOINT ["/bin/bash", "-l","/entrypoint.sh"]
+ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]

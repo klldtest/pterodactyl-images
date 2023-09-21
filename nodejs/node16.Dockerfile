@@ -24,4 +24,4 @@ COPY ./script/github.sh /github.sh
 COPY ./script/shellv2.sh /shell.sh
 COPY ./script/node/nodeAutoInstall.sh /nodeAutoInstall.sh
 
-ENTRYPOINT ["/bin/bash", "-l","/entrypoint.sh"]
+ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]

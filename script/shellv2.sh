@@ -1,5 +1,7 @@
 #!/bin/ash
 
+cd /home/container
+
 # Run Shell
 if [[ "$SHELL_ACCESS" == "TRUE"  ]]; then
    # Empty line

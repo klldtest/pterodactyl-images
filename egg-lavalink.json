@@ -45,7 +45,7 @@
             "default_value": "youshallnotpass",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "required|string|max:50",
+            "rules": "required|string|max:100",
             "field_type": "text"
         },
         {

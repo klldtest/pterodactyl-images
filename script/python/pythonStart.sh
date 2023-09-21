@@ -25,7 +25,7 @@ echo "* Optional Variable"
 echo "*************************************************************"
 echo "* Shell Access: $SHELL_ACCESS"
 echo "* Auto Install Package: $AUTO_INSTALL_PACKAGE"
-echo "* Skip Overwrite Warning: $SKIP_OVERWRITE_WARNIGN"
+echo "* Skip Overwrite Warning: $SKIP_OVERWRITE_WARNING"
 echo "*************************************************************"
 echo " "
 echo "*************************************************************"
@@ -48,9 +48,12 @@ echo "*************************************************************"
 # Remove temp folder
 rm -rf temp
 
-bash -l /github.sh
-bash -l /shell.sh
-bash -l /pythonAutoInstall.sh
+cd / && ./github.sh
+cd / && ./shell.sh
+cd / && ./pythonAutoInstall.sh
+
+# cd into container
+cd /home/container
 
 # Run App
 echo " "

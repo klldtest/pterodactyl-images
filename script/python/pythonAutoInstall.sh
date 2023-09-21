@@ -1,5 +1,7 @@
 #!/bin/ash
 
+cd /home/container
+
 # Run package installation
 if [[ "$AUTO_INSTALL_PACKAGE" == "TRUE"  ]]; then
     echo " "
