@@ -25,7 +25,7 @@ COPY ./script/lavalink/lavalinkStart.sh /start.sh
 USER root
 RUN chmod a+x /entrypoint.sh
 RUN chmod a+x /shell.sh
-RUN chmod a+x /lavalinkStart.sh
+RUN chmod a+x /start.sh
 
 USER container
 

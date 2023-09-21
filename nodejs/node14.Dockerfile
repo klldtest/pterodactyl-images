@@ -32,4 +32,5 @@ RUN chmod a+x /shell.sh
 RUN chmod a+x /nodeAutoInstall.sh
 
 USER container
+
 ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
