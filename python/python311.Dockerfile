@@ -1,4 +1,4 @@
-FROM python:3.11-rc-alpine
+FROM python:3.11-alpine
 
 LABEL MAINTAINER Sahrul Arsad, sahrularsad@yewonkim.tk
 
