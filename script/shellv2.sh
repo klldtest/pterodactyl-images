@@ -12,7 +12,7 @@ if [[ "$SHELL_ACCESS" == "TRUE"  ]]; then
     echo "* If you stuck inside a program, please restart the container."
     echo "*************************************************************"
 
-    bash -l
+    bash
 
     # Empty line
     echo " "
