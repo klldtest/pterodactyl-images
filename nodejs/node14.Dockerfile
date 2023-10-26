@@ -6,7 +6,7 @@ ENV PYTHONUNBUFFERED=1
 
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
 RUN apk add --no-cache --update wget curl ca-certificates openssl git tar bash sqlite fontconfig neofetch
-RUN apk add --no-cache --update build-base xz php8 python3 ffmpeg libffi-dev py3-libnacl opus opus-dev
+RUN apk add --no-cache --update build-base xz php8 python3 ffmpeg libffi-dev py3-libnacl opus opus-dev pixman-dev
 RUN ln -sf python3 /usr/bin/python 
 RUN python3 -m ensurepip 
 RUN pip3 install --no-cache --upgrade pip setuptools 
