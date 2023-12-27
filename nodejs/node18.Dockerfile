@@ -13,6 +13,8 @@ RUN pip3 install --no-cache --upgrade pip setuptools
 
 RUN adduser --disabled-password --home /home/container container
 
+RUN cp /usr/bin/php8 /usr/bin/php
+
 USER container
 ENV USER=container HOME=/home/container
 
