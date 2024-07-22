@@ -11,6 +11,7 @@ echo "* Node: "$(node -v)
 echo "* NPM: "$(npm -v)
 echo "* Python: "$(python --version)
 echo "* Pip: "$(pip --version)
+echo "* FFMPEG: "$(ffmpeg -version | grep "ffmpeg version")
 echo "*************************************************************"
 echo " "
 echo "*************************************************************"
