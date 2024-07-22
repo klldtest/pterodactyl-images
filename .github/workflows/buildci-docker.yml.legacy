@@ -80,6 +80,40 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+      #-----------------------------------NODEJS14---------------------------------------# 
+      # -
+      #   name: Build and push (NodeJS 14)
+      #   uses: docker/build-push-action@v3
+      #   with:
+      #     context: .
+      #     file: ./nodejs/node14.Dockerfile
+      #     platforms: linux/amd64,linux/arm64
+      #     push: true
+      #     tags: sahrul012/pterodactyl-images:nodejs_14
+      # -
+      #   name: Push Image to multiple registries (NodeJS 14)
+      #   uses: akhilerm/tag-push-action@v2.0.0
+      #   with:
+      #     src: docker.io/sahrul012/pterodactyl-images:nodejs_14
+      #     dst: |
+      #       ghcr.io/sahrulgamerz/pterodactyl-images:nodejs_14
+      #-----------------------------------NODEJS16---------------------------------------# 
+      -
+        name: Build and push (NodeJS 16)
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: ./nodejs/node16.Dockerfile
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: sahrul012/pterodactyl-images:nodejs_16
+      -
+        name: Push Image to multiple registries (NodeJS 16)
+        uses: akhilerm/tag-push-action@v2.0.0
+        with:
+          src: docker.io/sahrul012/pterodactyl-images:nodejs_16
+          dst: |
+            ghcr.io/sahrulgamerz/pterodactyl-images:nodejs_16
       #-----------------------------------NODEJS18---------------------------------------# 
       -
         name: Build and push (NodeJS 18)
@@ -97,40 +131,6 @@ jobs:
           src: docker.io/sahrul012/pterodactyl-images:nodejs_18
           dst: |
             ghcr.io/sahrulgamerz/pterodactyl-images:nodejs_18
-      #-----------------------------------NODEJS20---------------------------------------# 
-      -
-        name: Build and push (NodeJS 20)
-        uses: docker/build-push-action@v3
-        with:
-          context: .
-          file: ./nodejs/node20.Dockerfile
-          platforms: linux/amd64,linux/arm64
-          push: true
-          tags: sahrul012/pterodactyl-images:nodejs_20
-      -
-        name: Push Image to multiple registries (NodeJS 20)
-        uses: akhilerm/tag-push-action@v2.0.0
-        with:
-          src: docker.io/sahrul012/pterodactyl-images:nodejs_20
-          dst: |
-            ghcr.io/sahrulgamerz/pterodactyl-images:nodejs_20
-      #-----------------------------------NODEJS22---------------------------------------# 
-      -
-        name: Build and push (NodeJS 22)
-        uses: docker/build-push-action@v3
-        with:
-          context: .
-          file: ./nodejs/node22.Dockerfile
-          platforms: linux/amd64,linux/arm64
-          push: true
-          tags: sahrul012/pterodactyl-images:nodejs_22
-      -
-        name: Push Image to multiple registries (NodeJS 22)
-        uses: akhilerm/tag-push-action@v2.0.0
-        with:
-          src: docker.io/sahrul012/pterodactyl-images:nodejs_22
-          dst: |
-            ghcr.io/sahrulgamerz/pterodactyl-images:nodejs_22
           
 #----------------------------------------------------------------------------------#
 #------------------------------------PYTHON----------------------------------------# 
@@ -160,6 +160,23 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+      #-----------------------------------Python37---------------------------------------# 
+      -
+        name: Build and push (Python 37)
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: ./python/python37.Dockerfile
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: sahrul012/pterodactyl-images:python_37
+      -
+        name: Push Image to multiple registries (Python 37)
+        uses: akhilerm/tag-push-action@v2.0.0
+        with:
+          src: docker.io/sahrul012/pterodactyl-images:python_37
+          dst: |
+            ghcr.io/sahrulgamerz/pterodactyl-images:python_37
       #-----------------------------------Python38---------------------------------------# 
       -
         name: Build and push (Python 38)
