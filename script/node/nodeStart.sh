@@ -12,6 +12,7 @@ echo "* NPM: "$(npm -v)
 echo "* Python: "$(python --version)
 echo "* Pip: "$(pip --version)
 echo "* FFMPEG: "$(ffmpeg -version | grep "ffmpeg version")
+echo "* PHP: "$(php -v | grep "PHP" | head -1)
 echo "*************************************************************"
 echo " "
 echo "*************************************************************"
