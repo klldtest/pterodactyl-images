@@ -13,6 +13,7 @@ if [[ "$AUTO_INSTALL_PACKAGE" == "TRUE"  ]]; then
     elif [[ "$PACKAGE_MANAGER" == "yarn" ]]; then
         yarn install
     elif [[ "$PACKAGE_MANAGER" == "pnpm" ]]; then
+        pnpm config set store-dir .pnpm-store
         pnpm install
     else
         echo " "
