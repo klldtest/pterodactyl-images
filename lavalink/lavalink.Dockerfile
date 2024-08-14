@@ -1,6 +1,6 @@
 FROM openjdk:22-oraclelinux9
 
-LABEL MAINTAINER=Sahrul Arsad, yewonkim@live.sah.ovh
+LABEL MAINTAINER="Sahrul Arsad, yewonkim@live.sah.ovh"
 
 RUN microdnf install epel-release
 RUN rpm -i --nosignature "https://download1.rpmfusion.org/free/el/rpmfusion-free-release-9.noarch.rpm"

@@ -1,6 +1,6 @@
 FROM node:18-alpine
 
-LABEL MAINTAINER=Sahrul Arsad, yewonkim@live.sah.ovh
+LABEL MAINTAINER="Sahrul Arsad, yewonkim@live.sah.ovh"
 
 ENV PYTHONUNBUFFERED=1 PNPM_HOME=/pnpm
 
