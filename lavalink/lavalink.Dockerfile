@@ -2,9 +2,10 @@ FROM openjdk:22-oraclelinux9
 
 LABEL MAINTAINER="Sahrul Arsad, yewonkim@live.sah.ovh"
 
+RUN microdnf --enablerepo=crb install ladspa
 RUN microdnf install epel-release
-RUN rpm -i --nosignature "https://download1.rpmfusion.org/free/el/rpmfusion-free-release-9.noarch.rpm"
-RUN rpm -i --nosignature "https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-9.noarch.rpm"
+RUN rpm -i --nosignature "https://mirrors.rpmfusion.org/free/el/rpmfusion-free-release-9.noarch.rpm"
+RUN rpm -i --nosignature "https://mirrors.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-9.noarch.rpm"
 RUN if [[ "$(uname -m)" == "aarch64" ]] ; then rpm -i --nosignature "https://rpmfind.net/linux/centos-stream/9-stream/AppStream/$(uname -m)/os/Packages/SDL2-2.26.0-1.el9.$(uname -m).rpm" ; elif [[ "$(uname -m)" == "x86_64" ]] ; then rpm -i --nosignature "https://rpmfind.net/linux/centos-stream/9-stream/AppStream/$(uname -m)/os/Packages/SDL2-2.26.0-1.el9.$(uname -m).rpm" ; else rpm -i --nosignature "https://rpmfind.net/linux/centos-stream/9-stream/AppStream/$(uname -m)/os/Packages/SDL2-2.26.0-1.el9.$(uname -m).rpm" ; fi
 RUN microdnf install curl ca-certificates openssl git tar bash sqlite fontconfig hostname
 RUN microdnf install xz python3 python3-pip jq neofetch opus ffmpeg ffmpeg-devel
