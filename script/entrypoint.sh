@@ -8,6 +8,9 @@ export PORT=$SERVER_PORT
 rm -rf $HOME/.profile $HOME/.bashrc $HOME/.bash_profile $HOME/.bash_login
 
 # Allow file executable without using ./
+if [ "$PNPM_HOME" != '' ]; then
+    export PATH="$PNPM_HOME:$PATH"
+fi
 export PATH="$PATH:."
 
 # Add color to shell

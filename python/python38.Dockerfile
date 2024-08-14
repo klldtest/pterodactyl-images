@@ -1,6 +1,6 @@
 FROM python:3.8-alpine
 
-LABEL MAINTAINER Sahrul Arsad, sahrularsad@yewonkim.tk
+LABEL MAINTAINER=Sahrul Arsad, yewonkim@live.sah.ovh
 
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
 RUN apk add --no-cache --update wget curl ca-certificates openssl git tar bash sqlite fontconfig neofetch

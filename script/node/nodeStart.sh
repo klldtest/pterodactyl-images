@@ -4,7 +4,7 @@
 rm -rf temp
 
 # Print current version manager list and environment variable
-vType='node'
+export vType='node'
 cd / && ./ver.sh
 cd / && ./var.sh
 cd / && ./info.sh

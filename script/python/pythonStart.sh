@@ -4,7 +4,7 @@
 rm -rf temp
 
 # Print current version manager list and environment variable
-vType='python'
+export vType='python'
 cd / && ./ver.sh
 cd / && ./var.sh
 cd / && ./info.sh
