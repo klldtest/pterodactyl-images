@@ -6,7 +6,8 @@ ENV PYTHONUNBUFFERED=1 PNPM_HOME=/pnpm
 
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
 RUN apk add --no-cache --update wget curl ca-certificates openssl git tar bash sqlite fontconfig neofetch
-RUN apk add --no-cache --update build-base xz php81 python3 py3-pip py3-setuptools ffmpeg libffi-dev py3-libnacl opus opus-dev pixman-dev cairo-dev pango-dev
+RUN apk add --no-cache --update build-base xz php81 python3 py3-pip py3-setuptools ffmpeg libffi-dev py3-libnacl opus opus-dev pixman-dev
+RUN apk add --no-cache --update cairo-dev jpeg-dev pango-dev giflib-dev
 RUN ln -sf python3 /usr/bin/python 
 RUN ln -s $(which php81) /usr/bin/php
 RUN wget -qO- https://get.pnpm.io/install.sh | SHELL="$(which bash)" bash -
