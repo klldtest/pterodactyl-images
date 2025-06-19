@@ -2,9 +2,10 @@ FROM python:3.10-alpine
 
 LABEL MAINTAINER="Sahrul Arsad, yewonkim@live.sah.ovh"
 
-RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
-RUN apk add --no-cache --update wget curl ca-certificates openssl git tar bash sqlite fontconfig neofetch
-RUN apk add --no-cache --update build-base xz php81 ffmpeg libffi-dev py3-libnacl opus opus-dev
+RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
+    apk add --no-cache --update wget curl ca-certificates openssl git tar bash sqlite fontconfig neofetch \
+    build-base xz php81 ffmpeg libffi-dev py3-libnacl opus opus-dev \
+    docker docker-cli py3-pip
 
 RUN adduser --disabled-password --home /home/container container
 
